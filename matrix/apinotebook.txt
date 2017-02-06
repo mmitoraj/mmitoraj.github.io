@@ -1,0 +1,1 @@
+{"fileToCopy":["gettingEventsFrom2016_minerva_v1"],"fileToVersion":["gettingEventsFrom2016_minerva_v1"],"fileToCheckPartial":[]}

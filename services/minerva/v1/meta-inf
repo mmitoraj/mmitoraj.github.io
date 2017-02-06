@@ -1,0 +1,16 @@
+apiReferenceContentInternal: "---\nservice: Minerva\ntitle: API Reference\nlayout: document\n---\nmainReferencePlaceholder"
+apiReferenceSource: "./tmp/docuSources/services/minerva/v1/service/docu/files/apireferenceTempContent.html"
+apiReferenceSourceInternal: "./tmp/docuSources/services/minerva/v1/service/docu/internal/files/apireferenceTempContent.html"
+apiReferenceNewFile: "./tmp/docuSources/services/minerva/v1/service/docu/files/apireference.html"
+apiReferenceNewFileInternal: "./tmp/docuSources/services/minerva/v1/service/docu/internal/files/apireference.html"
+clientFolder: "./tmp/docuSources/services/minerva/v1/service/docu/files/client"
+clientFolderInternal: "./tmp/docuSources/services/minerva/v1/service/docu/internal/files/client"
+clonedDocuFolderTypes: "./tmp/docuSources/services"
+isInternalNameExists: false
+isService: true
+isGS: false
+isTools: false
+hasReleaseNotes: true
+isSrcLocNotMainDocu: false
+local: false
+---
