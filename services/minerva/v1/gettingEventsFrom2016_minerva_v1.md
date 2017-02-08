@@ -6,7 +6,7 @@
 
 <div class="notebook" id="staticInteractivegettingEventsFrom2016_minerva_v1">
 
-  <div class="notebook__static-tutorial" data-tutorial="gettingEventsFrom2016_minerva_v1" data-is-quick-setup="true" data-link="https://your_mmitoraj.github.io/build/embedded.html#gettingEventsFrom2016_minerva_v1">
+  <div class="notebook__static-tutorial" data-tutorial="gettingEventsFrom2016_minerva_v1" data-is-quick-setup="true" data-link="https://mmitoraj.github.io/build/embedded.html#gettingEventsFrom2016_minerva_v1">
    
    
    <p>Minerva service exposes its API contract using RAML specification. Thanks to it, you can generate a JavaScript client that you will later use in your code.

@@ -9014,8 +9014,8 @@ select[multiple].form-readonly-text.form-readonly-text-sm {
 }
 @font-face {
   font-family: "hyicon";
-  src: url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?vaoee8');
-  src: url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?#iefixvaoee8') format('embedded-opentype'), url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.woff?vaoee8') format('woff'), url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.ttf?vaoee8') format('truetype'), url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.svg?vaoee8#hyicon') format('svg');
+  src: url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?vaoee8');
+  src: url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?#iefixvaoee8') format('embedded-opentype'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.woff?vaoee8') format('woff'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.ttf?vaoee8') format('truetype'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.svg?vaoee8#hyicon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -11357,23 +11357,23 @@ table.techne-table tr.new-item:hover {
   color: #7f90a4;
 }
 .thumbnail--default-pic__сircle {
-  background-image: url("https://your_github_mmitoraj.github.io/images/default_circle-pic.png");
+  background-image: url("https://mmitoraj.github.io/images/default_circle-pic.png");
 }
 .thumbnail--default-pic__rectangle {
-  background-image: url("https://your_github_mmitoraj.github.io/images/default_square-pic.png");
+  background-image: url("https://mmitoraj.github.io/images/default_square-pic.png");
   background-size: contain;
 }
 .thumbnail--default-pic__hexagon {
-  background-image: url("https://your_github_mmitoraj.github.io/images/default_hexagon-pic.png");
+  background-image: url("https://mmitoraj.github.io/images/default_hexagon-pic.png");
 }
 .thumbnail--avatar {
-  background-image: url("https://your_github_mmitoraj.github.io/images/cat-avatar.jpg");
+  background-image: url("https://mmitoraj.github.io/images/cat-avatar.jpg");
 }
 .thumbnail--package-logo {
-  background-image: url("https://your_github_mmitoraj.github.io/images/package-picture.png");
+  background-image: url("https://mmitoraj.github.io/images/package-picture.png");
 }
 .thumbnail--org-logo {
-  background-image: url("https://your_github_mmitoraj.github.io/images/sap-hybris-logo.png");
+  background-image: url("https://mmitoraj.github.io/images/sap-hybris-logo.png");
 }
 .hint-text {
   color: #abb2bb;
@@ -12130,11 +12130,11 @@ Syntax for sets:
   background-image: linear-gradient(top, #0486e0 0%, #0b75be 100%);
 }
 .u-background-blueprint::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
   z-index: 0;
 }
 .u-background-blueprint::before {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
   z-index: 1;
 }
 .u-background-blueprint--2 {
@@ -12147,11 +12147,11 @@ Syntax for sets:
   background-image: linear-gradient(top, #1b99ec 0%, #0881d4 100%);
 }
 .u-background-blueprint--2::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/grid.png');
+  background-image: url('https://mmitoraj.github.io/images/grid.png');
   z-index: 0;
 }
 .u-background-blueprint--3 {
-  background: url('https://your_github_mmitoraj.github.io/images/blueprint-grid--gray.png');
+  background: url('https://mmitoraj.github.io/images/blueprint-grid--gray.png');
 }
 .u-background-grayish-blue {
   background-color: #e0e9f0;
@@ -15993,7 +15993,7 @@ span.CodeMirror-selectedtext {
   margin: 1em 0;
   padding: 1em;
   border: 1px solid #b3b3b2;
-  background: url('https://your_github_mmitoraj.github.io/images/blueprint-grid--gray.png');
+  background: url('https://mmitoraj.github.io/images/blueprint-grid--gray.png');
 }
 .mermaid .label {
   color: #fff;
@@ -18196,7 +18196,7 @@ article {
   padding: 20px 0;
 }
 .homepage-wrapper .homepage-sprite {
-  background: url("https://your_github_mmitoraj.github.io/images/icons/homepage-sprite.png") top center no-repeat;
+  background: url("https://mmitoraj.github.io/images/icons/homepage-sprite.png") top center no-repeat;
   display: block;
   height: 116px;
   width: 120px;
@@ -18218,12 +18218,12 @@ article {
   height: 160px;
 }
 .homepage-wrapper .forward-link {
-  background: url("https://your_github_mmitoraj.github.io/images/forward_arrow.png") right 50% no-repeat;
+  background: url("https://mmitoraj.github.io/images/forward_arrow.png") right 50% no-repeat;
   display: inline-block;
   padding-right: 15px;
 }
 .homepage-wrapper .tools-landing-sprite {
-  background: url("https://your_github_mmitoraj.github.io/images/icons/tools-landing-sprite.png") top center no-repeat;
+  background: url("https://mmitoraj.github.io/images/icons/tools-landing-sprite.png") top center no-repeat;
   display: block;
   height: 116px;
   width: 70px;
@@ -18309,7 +18309,7 @@ article {
   margin-bottom: 40px;
 }
 .dev-guides .homepage-col-sprite {
-  background: url("https://your_github_mmitoraj.github.io/images/icons/homepage-colums-sprite.png") top center no-repeat;
+  background: url("https://mmitoraj.github.io/images/icons/homepage-colums-sprite.png") top center no-repeat;
   display: inline-block;
   height: 100px;
   width: 100px;
@@ -18682,7 +18682,7 @@ article {
   font-family: "Dosis";
   margin-top: -120px;
   background-color: #0881d4;
-  background-image: url("https://your_github_mmitoraj.github.io/images/grid.png");
+  background-image: url("https://mmitoraj.github.io/images/grid.png");
   background-image: url(/images/grid.png), -webkit-gradient(linear, left top, left bottom, from(#1b99ec), to(#0881d4));
   /* Saf4+, Chrome */
   background-image: url(/images/grid.png), -webkit-linear-gradient(top, #1b99ec, #0881d4);
@@ -19144,7 +19144,7 @@ article {
   border-radius: 0;
   background-color: none;
   padding: 10px 35px;
-  background: url('https://your_github_mmitoraj.github.io/images/blog-filter-seperator.png') right 11px no-repeat;
+  background: url('https://mmitoraj.github.io/images/blog-filter-seperator.png') right 11px no-repeat;
   border-bottom: 1px solid #d5dee7;
   font-size: 13px;
 }
@@ -19358,7 +19358,7 @@ article {
   padding: 10px 10px 10px 35px;
   width: 30px;
   border-radius: 3px;
-  background: url("https://your_github_mmitoraj.github.io/images/icons/search-icon.svg") 10px 50% no-repeat #0486e0;
+  background: url("https://mmitoraj.github.io/images/icons/search-icon.svg") 10px 50% no-repeat #0486e0;
 }
 .search-wrapper .search-bar::-webkit-input-placeholder {
   color: #b7c6d6;
@@ -19439,7 +19439,7 @@ article {
 .search-wrapper .no-results {
   text-align: center;
   padding: 50px 20px 20px;
-  background: url("https://your_github_mmitoraj.github.io/images/icons/smiley-sad.svg") top center no-repeat;
+  background: url("https://mmitoraj.github.io/images/icons/smiley-sad.svg") top center no-repeat;
   background-size: 50px;
 }
 .search-wrapper .search-info {
@@ -24586,11 +24586,11 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   background-repeat: repeat;
 }
 .featured-items--tertiary::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
   z-index: 0;
 }
 .featured-items--tertiary::before {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
   z-index: 1;
 }
 .featured-items__container {
@@ -24812,7 +24812,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   color: #313440;
 }
 .featured-items .featured-items__title--primary::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/icons/arrow-landing-steps--secondary.svg');
+  background-image: url('https://mmitoraj.github.io/images/icons/arrow-landing-steps--secondary.svg');
 }
 .featured-items .featured-items__title--secondary {
   color: #000;
@@ -24824,7 +24824,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   color: #fff;
 }
 .featured-items .featured-items__title--tertiary::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/icons/arrow-landing-steps--tertiary.svg');
+  background-image: url('https://mmitoraj.github.io/images/icons/arrow-landing-steps--tertiary.svg');
 }
 .featured-items .featured-items__paragraph {
   font-size: 16px;
@@ -25194,11 +25194,11 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   background-repeat: repeat;
 }
 .overview::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
   z-index: 0;
 }
 .overview::before {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
   z-index: 1;
 }
 .overview__header,
@@ -25555,7 +25555,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   background-repeat: repeat;
 }
 .error::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/grid.png');
+  background-image: url('https://mmitoraj.github.io/images/grid.png');
   z-index: 0;
 }
 .error .search-wrapper {
@@ -25847,7 +25847,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
 .left-nav .nav-header.back {
   color: #0486e0;
   padding: 1em 1.33333333em 1em 2.66666667em;
-  background: #1d2e43 url("https://your_github_mmitoraj.github.io/images/icons/back-link-arrow.png") 1em 50% no-repeat;
+  background: #1d2e43 url("https://mmitoraj.github.io/images/icons/back-link-arrow.png") 1em 50% no-repeat;
   border: 1px solid #364a63;
   border-left: none;
   border-right: none;
@@ -25950,7 +25950,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   font-size: 14px;
   text-transform: inherit;
   padding: 0 1.42857143em 0 2.85714286em;
-  background: url('https://your_github_mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
+  background: url('https://mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
   display: inline-block;
 }
 .api-nav__link--back:active,
@@ -25978,7 +25978,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
 .api-nav li a.left-nav__link--back:hover,
 .left-nav li a.left-nav__link--back:hover {
   color: #dbe3eb;
-  background: url('https://your_github_mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
+  background: url('https://mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
 }
 .api-nav__api-link,
 .left-nav__api-link,
@@ -26010,7 +26010,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   font-size: 14px;
   text-transform: inherit;
   padding: 0 1.42857143em 0 2.85714286em;
-  background: url('https://your_github_mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
+  background: url('https://mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
   display: inline-block;
 }
 .api-nav .back-link a:active,
@@ -26020,7 +26020,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
 .api-nav .back-link a:hover,
 .left-nav .back-link a:hover {
   color: #dbe3eb;
-  background: url('https://your_github_mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
+  background: url('https://mmitoraj.github.io/images/icons/back-link-arrow.png') 2.14285714em 50% no-repeat;
 }
 .api-nav__package-filter,
 .left-nav__package-filter,
@@ -26968,7 +26968,7 @@ raml-console article#raml-console .documentation .named-parameters .parameter .i
   line-height: 0;
 }
 .hyicon.hyicon-filter {
-  background: url("https://your_github_mmitoraj.github.io/images/icons/filter-icon.svg") no-repeat center / 21px;
+  background: url("https://mmitoraj.github.io/images/icons/filter-icon.svg") no-repeat center / 21px;
   content: '';
   height: 25px;
   width: 25px;
@@ -27505,11 +27505,11 @@ table.techne-table.techne-table--secondary tr th {
   background-repeat: repeat;
 }
 .jumbotron--featured::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
   z-index: 0;
 }
 .jumbotron--featured::before {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
   z-index: 1;
 }
 .jumbotron--secondary {
@@ -27662,7 +27662,7 @@ table.techne-table.techne-table--secondary tr th {
 }
 .m-filter .select2-container.a-link--filter--sort .select2-choice::before {
   content: 'Sort by:';
-  background: url("https://your_github_mmitoraj.github.io/images/icons/sort-icon.svg") no-repeat left / 25px;
+  background: url("https://mmitoraj.github.io/images/icons/sort-icon.svg") no-repeat left / 25px;
   padding: 5px 0 5px 30px;
 }
 .m-filter .select2-container.a-link--filter--flags .select2-choice::before {

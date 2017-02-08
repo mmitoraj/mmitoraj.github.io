@@ -9014,8 +9014,8 @@ select[multiple].form-readonly-text.form-readonly-text-sm {
 }
 @font-face {
   font-family: "hyicon";
-  src: url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?vaoee8');
-  src: url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?#iefixvaoee8') format('embedded-opentype'), url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.woff?vaoee8') format('woff'), url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.ttf?vaoee8') format('truetype'), url('https://your_github_mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.svg?vaoee8#hyicon') format('svg');
+  src: url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?vaoee8');
+  src: url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?#iefixvaoee8') format('embedded-opentype'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.woff?vaoee8') format('woff'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.ttf?vaoee8') format('truetype'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.svg?vaoee8#hyicon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -11203,23 +11203,23 @@ table.techne-table tr.new-item:hover {
   color: #7f90a4;
 }
 .thumbnail--default-pic__сircle {
-  background-image: url("https://your_github_mmitoraj.github.io/images/default_circle-pic.png");
+  background-image: url("https://mmitoraj.github.io/images/default_circle-pic.png");
 }
 .thumbnail--default-pic__rectangle {
-  background-image: url("https://your_github_mmitoraj.github.io/images/default_square-pic.png");
+  background-image: url("https://mmitoraj.github.io/images/default_square-pic.png");
   background-size: contain;
 }
 .thumbnail--default-pic__hexagon {
-  background-image: url("https://your_github_mmitoraj.github.io/images/default_hexagon-pic.png");
+  background-image: url("https://mmitoraj.github.io/images/default_hexagon-pic.png");
 }
 .thumbnail--avatar {
-  background-image: url("https://your_github_mmitoraj.github.io/images/cat-avatar.jpg");
+  background-image: url("https://mmitoraj.github.io/images/cat-avatar.jpg");
 }
 .thumbnail--package-logo {
-  background-image: url("https://your_github_mmitoraj.github.io/images/package-picture.png");
+  background-image: url("https://mmitoraj.github.io/images/package-picture.png");
 }
 .thumbnail--org-logo {
-  background-image: url("https://your_github_mmitoraj.github.io/images/sap-hybris-logo.png");
+  background-image: url("https://mmitoraj.github.io/images/sap-hybris-logo.png");
 }
 .hint-text {
   color: #abb2bb;
@@ -11976,11 +11976,11 @@ Syntax for sets:
   background-image: linear-gradient(top, #0486e0 0%, #0b75be 100%);
 }
 .u-background-blueprint::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
   z-index: 0;
 }
 .u-background-blueprint::before {
-  background-image: url('https://your_github_mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
+  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
   z-index: 1;
 }
 .u-background-blueprint--2 {
@@ -11993,11 +11993,11 @@ Syntax for sets:
   background-image: linear-gradient(top, #1b99ec 0%, #0881d4 100%);
 }
 .u-background-blueprint--2::after {
-  background-image: url('https://your_github_mmitoraj.github.io/images/grid.png');
+  background-image: url('https://mmitoraj.github.io/images/grid.png');
   z-index: 0;
 }
 .u-background-blueprint--3 {
-  background: url('https://your_github_mmitoraj.github.io/images/blueprint-grid--gray.png');
+  background: url('https://mmitoraj.github.io/images/blueprint-grid--gray.png');
 }
 .u-background-grayish-blue {
   background-color: #e0e9f0;
