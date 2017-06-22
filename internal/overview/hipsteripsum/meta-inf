@@ -1,0 +1,16 @@
+apiReferenceContentInternal: "---\nservice: Hipster Ipsum\ntitle: API Reference\nlayout: document\n---\nmainReferencePlaceholder"
+apiReferenceSource: "./tmp/docuSources/overview/hipsteripsum/content/overview/hipsteripsum/docu/files/apireferenceTempContent.html"
+apiReferenceSourceInternal: "./tmp/docuSources/overview/hipsteripsum/content/overview/hipsteripsum/docu/internal/files/apireferenceTempContent.html"
+apiReferenceNewFile: "./tmp/docuSources/overview/hipsteripsum/content/overview/hipsteripsum/docu/files/apireference.html"
+apiReferenceNewFileInternal: "./tmp/docuSources/overview/hipsteripsum/content/overview/hipsteripsum/docu/internal/files/apireference.html"
+clientFolder: "./tmp/docuSources/overview/hipsteripsum/content/overview/hipsteripsum/docu/files/client"
+clientFolderInternal: "./tmp/docuSources/overview/hipsteripsum/content/overview/hipsteripsum/docu/internal/files/client"
+clonedDocuFolderTypes: "./tmp/docuSources/overview"
+isInternalNameExists: false
+isService: false
+isGS: false
+isTools: false
+hasReleaseNotes: false
+isSrcLocNotMainDocu: false
+local: false
+---

@@ -1,0 +1,1477 @@
+#%RAML 0.8
+title: Batman Ipsum Service
+version: v1
+mediaType: application/json
+baseUri: https://your.api.proxy/dccomics/batman-ipsum/v2
+schemas:
+  - userInfoClaims: |
+      {
+          "$schema": "http://schemas-schema.org/draft-04/schema",
+          "type": "object",
+          "title": "UserInfo Claims",
+          "properties": {
+              "sub": {
+                  "description": "Subject - Identifier for the End-User at the Issuer",
+                  "type": "string",
+                  "required": true
+              },
+              "tenant": {
+                  "description": "Tenant for which End-User is authenticated (Private Claim)",
+                  "type": "string",
+                  "required": false
+              }
+          }
+      }
+traits:
+  - oauth2:
+      usage: Apply this trait to support OAuth 2.0 authentication.
+      description: |
+        Supports OAuth 2.0 for authenticating all API requests.
+
+      headers:
+        Authorization:
+          type: string
+          description: |
+            Used to send a valid OAuth2 access token.
+
+          example: Bearer access_token
+          required: true
+      responses:
+        401:
+          description: |
+            Given request is unauthorized. Bad or expired token. Reauthenticate
+            the user. Any details will be provided within the response payload.
+
+          body:
+            application/json:
+              example: |
+                {
+                    "status": 401,
+                    "message": "Authorization: Unauthorized. Bearer TOKEN is invalid",
+                    "type": "insufficient_credentials",
+                    "moreInfo": "https://api.yaas.io/patterns/errortypes.html"
+                }
+              schema: |
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "error",
+                    "description": "Schema for API specified errors.",
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "integer",
+                            "description": "original HTTP error code, should be consistent with the response HTTP code",
+                            "minimum": 100,
+                            "maximum": 599
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "classification of the error type, lower case with underscore eg validation_failure",
+                            "pattern": "[a-z]+[a-z_]*[a-z]+"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "descriptive error message for debugging"
+                        },
+                        "moreInfo": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "link to documentation to investigate further and finding support"
+                        },
+                        "details": {
+                            "type": "array",
+                            "description": "list of problems causing this error",
+                            "items": {
+                                "$schema": "http://json-schema.org/draft-04/schema#",
+                                "title": "errorDetail",
+                                "description": "schema for specific error cause",
+                                "type": "object",
+                                "properties": {
+                                    "field": {
+                                        "type": "string",
+                                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "descriptive error detail message for debugging"
+                                    },
+                                    "moreInfo": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "link to documentation to investigate further and finding support for error detail"
+                                    }
+                                },
+                                "required": [
+                                    "type"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "status",
+                        "type"
+                    ]
+                }
+        403:
+          description: |
+            Evaluated request scopes in access token are not sufficient and do not match required scopes.
+
+          body:
+            application/json:
+              example: |
+                {
+                    "status": 403,
+                    "message": "Given request does not have required scopes in access token. It is not authorized to perform this operation.",
+                    "type": "insufficient_permissions"
+                }
+              schema: |
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "error",
+                    "description": "Schema for API specified errors.",
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "integer",
+                            "description": "original HTTP error code, should be consistent with the response HTTP code",
+                            "minimum": 100,
+                            "maximum": 599
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "classification of the error type, lower case with underscore eg validation_failure",
+                            "pattern": "[a-z]+[a-z_]*[a-z]+"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "descriptive error message for debugging"
+                        },
+                        "moreInfo": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "link to documentation to investigate further and finding support"
+                        },
+                        "details": {
+                            "type": "array",
+                            "description": "list of problems causing this error",
+                            "items": {
+                                "$schema": "http://json-schema.org/draft-04/schema#",
+                                "title": "errorDetail",
+                                "description": "schema for specific error cause",
+                                "type": "object",
+                                "properties": {
+                                    "field": {
+                                        "type": "string",
+                                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "descriptive error detail message for debugging"
+                                    },
+                                    "moreInfo": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "link to documentation to investigate further and finding support for error detail"
+                                    }
+                                },
+                                "required": [
+                                    "type"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "status",
+                        "type"
+                    ]
+                }
+  - yaasAware:
+      usage: |
+        Apply this trait when you want to add the request identifying headers to a method.
+      description: |
+        This trait defines the headers that describe an [authorized service call](https://devportal.yaas.io/overview/security/index.html#Authorization):
+
+        `hybris-tenant`, `hybris-client`, `hybris-client-id`, `hybris-external-path`, `hybris-external-url`, `hybris-user`, `hybris-scopes`, `hybris-request-id`, `hybris-hop`, `hybris-org`, and `hybris-target-url`.
+
+        These [hybris headers](https://devportal.yaas.io/tools/apibestpractices/index.html#hybrisHeaders) are assigned by the *YaaS API Proxy* based on the OAuth 2.0 access token that has been obtained for the service call.
+
+      headers:
+        hybris-tenant:
+          type: string
+          description: |
+            The tenant that the caller is acting upon.
+
+            Please note that this header's value is always lowercase.
+
+          pattern: "^[a-z][a-z0-9]+$"
+          minLength: 3
+          maxLength: 16
+          example: myexampleshop
+          required: false
+        hybris-client:
+          type: string
+          description: |
+            The identifier of the caller that is making the request.
+
+            For the purpose of the request, the client is said to be a *trusted client*, if, and only if, the `hybris-user` header is absent.
+            Please note that both dot-separated parts of this header's value are always lowercase.
+
+          pattern: |
+            ^[a-z][a-z0-9-]{1,14}[a-z0-9][.][a-z][a-z0-9-]{0,22}[a-z0-9]$
+          minLength: 6
+          maxLength: 41
+          example: myexample.myawesomeclient
+          required: false
+        hybris-client-id:
+          type: string
+          description: |
+            The `hybris-client-id` used to acquire the currently used access token. Providing the option to check if the current client id is indeed allowed to use the resource.
+
+          example: C0Kl5Sta1BMiQSqBQyYL5c0yRAwIr94a
+          required: false
+        hybris-external-path:
+          type: string
+          description: |
+            The public base path used by the calling client to make the request.
+
+          example: /hybris/echo/v1
+          required: false
+        hybris-external-url:
+          type: string
+          description: |
+            The public base URL used by the calling client to make the request.
+
+          example: https://api.yaas.io/hybris/echo/v1/
+          required: false
+        hybris-user:
+          type: string
+          description: |
+            The identifier of the authenticated user.
+
+            This is the user that obtained the OAuth 2.0 access token. In YaaS, the user identifier usually is an email address.
+
+            If this header is absent, but the `hybris-client` header is set, the request is said to be triggered by a *trusted client*. That is a service that authenticates itself, rather than leaving authentication to a user.
+
+          example: "mustermann@hybris.com"
+          required: false
+        hybris-scopes:
+          type: string
+          description: |
+            List of authorization scopes that are granted to the incoming request.
+
+            Distinct scopes are separated by single space characters and may be listed in any order. Each scope has a maximum length of 128 characters, and it typically is of the form `<org_base_path>.<service_name>_<scope_name>`. Please note that scopes are case sensitive.
+
+            This header may be empty or absent, e.g. when the request does not require any authorization scopes, or the caller cannot obtain any.
+
+          pattern: "^([a-zA-Z0-9._=-]{1,128}( [a-zA-Z0-9._=-]{1,128})*)?$"
+          example: my-org.myService_view my-org.myService_manage
+          required: false
+        hybris-request-id:
+          type: string
+          description: |
+            Unique identifier of the current HTTP request chain. The service propagates it unaltered whenever it makes a subsequent request to another YaaS service.
+
+          example: Ahd75sgAf54d
+          required: false
+        hybris-hop:
+          type: integer
+          description: |
+            The level of depth in the current HTTP request chain. The service propagates it unaltered whenever it makes a subsequent request to another YaaS service.
+
+          minimum: 1
+          example: 3
+          default: 1
+          required: false
+        hybris-org:
+          type: string
+          description: |
+            The identifier of the organization the caller is acting upon.
+
+          example: 59cc4b46f5ce83bf493f7h29
+          required: false
+        hybris-target-url:
+          type: string
+          description: |
+            The full public URL used by the calling client to make the request
+
+          example: https://api.yaas.io/hybris/echo/v1/myresource/1?fields=id
+          required: false
+      responses:
+        400:
+          description: |
+            Request syntactically incorrect. Any details will be provided within the response payload.
+          body:
+            application/json:
+              example: |
+                {
+                    "status": 400,
+                    "message": "There are validation problems, see details section for more information",
+                    "moreInfo": "https://api.yaas.io/patterns/errortypes.html",
+                    "type": "validation_violation",
+                    "details": [
+                        {
+                            "field": "hybris-tenant",
+                            "message": "size must be between 1 and 36",
+                            "type": "invalid_header"
+                        }
+                    ]
+                }
+              schema: |
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "error",
+                    "description": "Schema for API specified errors.",
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "integer",
+                            "description": "original HTTP error code, should be consistent with the response HTTP code",
+                            "minimum": 100,
+                            "maximum": 599
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "classification of the error type, lower case with underscore eg validation_failure",
+                            "pattern": "[a-z]+[a-z_]*[a-z]+"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "descriptive error message for debugging"
+                        },
+                        "moreInfo": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "link to documentation to investigate further and finding support"
+                        },
+                        "details": {
+                            "type": "array",
+                            "description": "list of problems causing this error",
+                            "items": {
+                                "$schema": "http://json-schema.org/draft-04/schema#",
+                                "title": "errorDetail",
+                                "description": "schema for specific error cause",
+                                "type": "object",
+                                "properties": {
+                                    "field": {
+                                        "type": "string",
+                                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "descriptive error detail message for debugging"
+                                    },
+                                    "moreInfo": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "link to documentation to investigate further and finding support for error detail"
+                                    }
+                                },
+                                "required": [
+                                    "type"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "status",
+                        "type"
+                    ]
+                }
+        403:
+          description: |
+            Given authorization scopes are not sufficient and do not match required scopes.
+
+          body:
+            application/json:
+              example: |
+                {
+                    "status": 403,
+                    "message": "Given request does not have required scopes. It is not authorized to perform this operation.",
+                    "type": "insufficient_permissions"
+                }
+              schema: |
+                {
+                    "$schema": "http://json-schema.org/draft-04/schema#",
+                    "title": "error",
+                    "description": "Schema for API specified errors.",
+                    "type": "object",
+                    "properties": {
+                        "status": {
+                            "type": "integer",
+                            "description": "original HTTP error code, should be consistent with the response HTTP code",
+                            "minimum": 100,
+                            "maximum": 599
+                        },
+                        "type": {
+                            "type": "string",
+                            "description": "classification of the error type, lower case with underscore eg validation_failure",
+                            "pattern": "[a-z]+[a-z_]*[a-z]+"
+                        },
+                        "message": {
+                            "type": "string",
+                            "description": "descriptive error message for debugging"
+                        },
+                        "moreInfo": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "link to documentation to investigate further and finding support"
+                        },
+                        "details": {
+                            "type": "array",
+                            "description": "list of problems causing this error",
+                            "items": {
+                                "$schema": "http://json-schema.org/draft-04/schema#",
+                                "title": "errorDetail",
+                                "description": "schema for specific error cause",
+                                "type": "object",
+                                "properties": {
+                                    "field": {
+                                        "type": "string",
+                                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                    },
+                                    "type": {
+                                        "type": "string",
+                                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                    },
+                                    "message": {
+                                        "type": "string",
+                                        "description": "descriptive error detail message for debugging"
+                                    },
+                                    "moreInfo": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "link to documentation to investigate further and finding support for error detail"
+                                    }
+                                },
+                                "required": [
+                                    "type"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "status",
+                        "type"
+                    ]
+                }
+/authorize:
+  description: |
+    The OAuth2 Authorization Endpoint is used to authenticate and obtain an authorization grant.<br/>
+    For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1">OAuth 2.0 specification (rfc6749#section-3.1)</a> and <a target="blank" title="Getting Started" href="/gettingstarted/index.html">Getting Started</a> tutorial.
+
+  get:
+    description: |
+      Starts the authorization procedure with the parameters specified in the URL query.
+
+    queryParameters:
+      response_type:
+        type: string
+        description: |
+          This value can be "token" or "id_token token" (currently only the Implicit Grant flow, as described in <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.1">rfc6749#section-4.2.1</a>, is supported).<br/>
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.1">OAuth 2.0 specification (rfc6749#section-3.1.1)</a>.
+
+        repeat: false
+        required: true
+      client_id:
+        type: string
+        description: |
+          This is the client identifier, available in the Client Authorization section in the Builder.
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.2">OAuth 2.0 specification (rfc6749#section-2.2)</a>.
+
+        repeat: false
+        required: true
+      redirect_uri:
+        type: string
+        description: |
+          This URL is used as a callback after a successful authentication and authorization grant to redirect the access token. This is:<br/>
+          - **OPTIONAL** if only one redirect URI is registered for your application.<br/>
+          - **REQUIRED** if multiple redirect URIs are registered for your application (must match at least one of these URIs).<br/>
+          For security reasons, TLS should be used for redirect URIs.<br/>
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 specification (rfc6749#section-3.1.2)</a>.
+
+        repeat: false
+        required: false
+      scope:
+        type: string
+        description: |
+          This lists the requested scope of the access.<br/>
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.<br/>
+          The predefined scopes are:<br/>
+          - **hybris.tenant={tenantName}** - This enables you to specify the tenant for which an access token should be issued.<br/>
+              If neither this scope nor hybris.no\_tenant is specified, and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br/>
+              If both this scope and hybris.no\_tenant are specified, the server responds with a redirection to the redirect\_uri or registered redirect URL with the 'error' parameter set to 'invalid\_scope' and 'error\_description' with the error details.<br/>
+          - **hybris.no\_tenant** - This enables you to omit the tenant chooser.<br/>
+              If neither this scope nor hybris.tenant is specified, and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br/>
+              If both this scope and hybris.tenant are specified, the server responds with a redirection to the redirect\_uri or registered redirect URL with the 'error' parameter set to 'invalid\_scope' and 'error\_description' with the error details.<br/>
+          - **hybris.org={organizationID}** - This enables yout to specify the organization for which an access token should be issued.<br/>
+              Using both this scope and hybris.tenant or hybris.no_tenant is not allowed.
+
+        example: "hybris.tenant%3Dfa4dvht53fgb%20hybris.manage%20hybris.view"
+        repeat: false
+        required: false
+      state:
+        type: string
+        description: |
+          RECOMMENDED. This is an opaque value used by the client to maintain the state between the request and the redirect.<br/>
+          This value is included when redirecting the user agent back to the client.<br/>
+          The parameter should be used to prevent cross-site request forgery as described in the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-10.12">OAuth 2.0 specification (rfc6749#section-10.12)</a>.
+
+        example: |
+          security_token%3D9F2a3290Daa126P%26custom_state%3Dhttps://hybris.com/index.html
+        repeat: false
+        required: false
+      id_token_hint:
+        type: string
+        description: |
+          This value is used in subsequent requests for the access token (the actual ID token that was received in the previous request).
+
+        repeat: false
+        required: false
+      nonce:
+        type: string
+        description: |
+          This value is used to prevent replay attacks when using id_token. It must have sufficient entropy.
+
+        repeat: false
+        required: false
+      display:
+        type: string
+        description: |
+          This value specifies how the authorization server displays the authentication and tenant chooser pages to the end user. <br/>The supported values are:<br/>
+            - `popup` for transparent background<br/>
+            - `page` for default display
+
+        example: page
+        repeat: false
+        required: false
+      hybris-session-id:
+        type: string
+        description: |
+          This is the session identifier. It is generated if not passed.
+
+        repeat: false
+        required: false
+    responses:
+      200:
+        description: |
+          The authentication page or the tenant chooser page for multi-tenant clients.<br/>
+      302:
+        description: |
+          The redirection to the redirect_uri or the registered redirect URL.
+        headers:
+          location:
+            description: |
+              The redirection URL equals the redirect\_uri if it was specified in the request. Otherwise, it equals the registered redirect URL. If multiple redirect URLs are registered, the redirect_uri parameter is required.<br/>
+              It contains the following parameters in the URL Fragment Component:
+              <ul>
+                <li>If the authentication and the authorization grant succeed:
+                  <ul>
+                    <li>**access_token** - This is the access token issued by the authorization server.</li>
+                    <li>**token_type** - This is the type of the token issued. The value is "bearer".<br/>
+                      For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-7.1">OAuth 2.0 specification (rfc6749#section-7.1)</a>.</li>
+                    <li>**expires_in** - This is the lifetime in seconds of the access token.</li>
+                    <li>**scope** - This lists the effective scope of the access token. The value of the scope parameter is expressed as a list of space-delimited, case-sensitive strings.<br/>
+                      For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.</li>
+                    <li>**state** - This is the exact value received from the client if it was specified in the request "state" parameter.</li>
+                  </ul>
+                </li>
+                <li>If the resource owner denies the access request, or if the request fails for reasons other than a missing or invalid redirection URI:
+                  <ul>
+                    <li>**error** - This is a single ASCII error code from the following:
+                      <ul>
+                        <li>**invalid_request** - The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.</li>
+                        <li>**unauthorized_client** - The client is not authorized to request an access token using this method.</li>
+                        <li>**access_denied** - The resource owner or authorization server denied the request.</li>
+                        <li>**unsupported_response_type** - The authorization server does not support obtaining an access token using this method.</li>
+                        <li>**invalid_scope** - The requested scope is invalid, unknown, or malformed.</li>
+                        <li>**server_error** - The authorization server encountered an unexpected condition that prevented it from completing the request.</li>
+                        <li>**temporarily_unavailable** - The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.</li>
+                      </ul>
+                    </li>
+                    <li>**error_description** - This is a human-readable ASCII text line providing additional information that is used to assist the client developer in understanding the returned error.</li>
+                    <li>**error_uri** - This is a URI identifying a human-readable webpage with information about the error that is used to provide the client developer with additional information about the error.</li>
+                    <li>**state** - This is the exact value received from the client if it was specified in the request "state" parameter.</li>
+                  </ul>
+                  For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</li>
+                </li>
+              </ul>
+
+            type: string
+            required: true
+            repeat: false
+            displayName: location
+      400:
+        description: |
+          Bad request is returned if the parameter:
+          <ul>
+            <li>client_id is missing (the redirect_uri cannot be verified and redirect URL is not found)</li>
+            <li>client_id has an invalid value (the redirect_uri cannot be verified and redirect URL is not found)</li>
+            <li>client_id is included in the request more than once</li>
+            <li>redirect_uri is missing and is required because multiple redirect URLs are registered</li>
+            <li>redirect_uri has invalid value</li>
+            <li>redirect_uri is included in the request more than once</li>
+          </ul>
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</li>
+
+  post:
+    description: |
+      This starts the authorization procedure with the parameters specified in the request body (form parameters).
+
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          response_type:
+            description: |
+              This value can be "token" or "id_token token" (currently only Implicit Grant flow, as described in <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.1">rfc6749#section-4.2.1</a>, is supported).<br/>
+              For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.1">OAuth 2.0 specification (rfc6749#section-3.1.1)</a>.
+
+            type: string
+            required: true
+            repeat: false
+            displayName: response_type
+          client_id:
+            description: |
+              This is the client identifier, available in the Client Authorization section in the Builder. For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.2">OAuth 2.0 specification (rfc6749#section-2.2)</a>.
+
+            type: string
+            required: true
+            repeat: false
+            displayName: client_id
+          redirect_uri:
+            description: |
+              This URL is used as a callback after a successful authentication and authorization grant to redirect the access token. This is:<br/>
+              - **OPTIONAL** if only one redirect URI is registered for your application.<br/>
+              - **REQUIRED** if multiple redirect URIs are registered for your application (must match at least one of these URIs).<br/>
+              For security reasons, TLS should be used for redirect URIs.<br/>
+              For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 specification (rfc6749#section-3.1.2)</a>.
+
+            type: string
+            required: false
+            repeat: false
+            displayName: redirect_uri
+          scope:
+            description: |
+              This lists the requested scope of the access.<br/>
+              For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.<br/>
+              The predefined scopes:<br/>
+              - **hybris.tenant={tenantName}** - This enables you to specify the tenant for which an access token should be issued.<br/>
+                  If neither this scope nor hybris.no\_tenant is specified and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br/>
+                  If both this scope and hybris.no\_tenant are specified, the server responds with a redirection to the redirect\_uri or registered redirect URL with the 'error' parameter set to 'invalid\_scope' and 'error\_description' with the error details.<br/>
+              - **hybris.no\_tenant** - Enables you to omit the tenant chooser.<br/>
+                  If neither this scope nor hybris.tenant is specified and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br/>
+                  If both this scope and hybris.tenant are specified, the server responds with a redirection to the redirect_uri or registered redirect URL with the 'error' parameter set to 'invalid\_scope' and 'error\_description' with the error details.<br/>
+              - **hybris.org={organizationID}** - This enables yout to specify the organization for which an access token should be issued.<br/>
+                  Using both this scope and hybris.tenant or hybris.no_tenant is not allowed.
+
+            type: string
+            required: false
+            repeat: false
+            example: hybris.tenant=fa4dvht53fgb hybris.manage hybris.view
+            displayName: scope
+          state:
+            description: |
+              RECOMMENDED. This is an opaque value used by the client to maintain the state between the request and the redirect.<br/>
+              This value is included when redirecting the user agent back to the client.<br/>
+              The parameter should be used for preventing cross-site request forgery as described in the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-10.12">OAuth 2.0 specification (rfc6749#section-10.12)</a>.
+
+            type: string
+            required: false
+            repeat: false
+            example: |
+              security_token=9F2a3290Daa126P&custom_state=https://hybris.com/index.html
+            displayName: state
+          id_token_hint:
+            description: |
+              This value is used in the subsequent requests for the access token (the actual ID token that was received in the previous request).
+
+            type: string
+            required: false
+            repeat: false
+            displayName: id_token_hint
+          nonce:
+            description: |
+              This value is used to prevent replay attacks when using the id_token. It must have sufficient entropy.
+
+            type: string
+            required: false
+            repeat: false
+            displayName: nonce
+          display:
+            description: |
+              This value specifies how the authorization server displays the authentication and tenant chooser pages to the end user. <br/>The supported values are:<br/>
+              - `popup` for transparent background<br/>
+              - `page` for default display
+
+            type: string
+            required: false
+            repeat: false
+            example: page
+            displayName: display
+          hybris-session-id:
+            description: |
+              This is the session identifier. It is generated if not passed.
+
+            type: string
+            required: false
+            repeat: false
+            displayName: hybris-session-id
+    responses:
+      200:
+        description: |
+          The authentication page or the tenant chooser page for multi-tenant clients.
+      302:
+        description: |
+          The redirection to the redirect_uri or the registered redirect URL.
+        headers:
+          location:
+            description: |
+              The redirection URL equals the redirect\_uri if it was specified in the request. Otherwise, it equals the registered redirect URL (if multiple redirect URLs are registered, the redirect_uri is required).<br/>
+              It contains the following parameters in the URL Fragment Component:
+              <ul>
+                <li>If the authentication and the authorization grant succeed:
+                  <ul>
+                    <li>**access_token** - This is the access token issued by the authorization server.</li>
+                    <li>**token_type** - This is the type of token issued. The value is "bearer".<br/>
+                      For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-7.1">OAuth 2.0 specification (rfc6749#section-7.1)</a>.</li>
+                    <li>**expires_in** - This is the lifetime in seconds of the access token.</li>
+                    <li>**scope** - This lists the effective scope of the access token. The value of the scope parameter is expressed as a list of space-delimited, case-sensitive strings.<br/>
+                      For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.</li>
+                    <li>**state** - This is the exact value received from the client if it was specified in the request "state" parameter.</li>
+                  </ul>
+                </li>
+                <li>If the resource owner denies the access request, or if the request fails for reasons other than a missing or invalid redirection URI:
+                  <ul>
+                    <li>**error** - This is a single ASCII error code from the following:
+                      <ul>
+                        <li>**invalid_request** - The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.</li>
+                        <li>**unauthorized_client** - The client is not authorized to request an access token using this method.</li>
+                        <li>**access_denied** - The resource owner or authorization server denied the request.</li>
+                        <li>**unsupported_response_type** - The authorization server does not support obtaining an access token using this method.</li>
+                        <li>**invalid_scope** - The requested scope is invalid, unknown, or malformed.</li>
+                        <li>**server_error** - The authorization server encountered an unexpected condition that prevented it from completing the request.</li>
+                        <li>**temporarily_unavailable** - The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.</li>
+                      </ul>
+                    </li>
+                    <li>**error_description** - This is a human-readable ASCII text line providing additional information that is used to assist the client developer in understanding the error that was returned.</li>
+                    <li>**error_uri** - This is a URI identifying a human-readable webpage with information about the error that is used to provide the client developer with additional information about the error.</li>
+                    <li>**state** - This is the exact value received from the client if it was specified in the request "state" parameter.</li>
+                  </ul>
+                  For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</li>
+                </li>
+              </ul>
+
+            type: string
+            required: true
+            repeat: false
+            displayName: location
+      400:
+        description: |
+          Bad request is returned if the parameter:
+          <ul>
+            <li>client_id is missing (the redirect_uri cannot be verified and redirect URL is not found)</li>
+            <li>client_id has an invalid value (the redirect_uri cannot be verified and redirect URL is not found)</li>
+            <li>client_id is included in the request more than once</li>
+            <li>redirect_uri is missing and it is required because multiple redirect URLs are registered</li>
+            <li>redirect_uri has an invalid value</li>
+            <li>redirect_uri is included in request more than once</li>
+          </ul>
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</li>
+
+/token:
+  is: [ yaasAware ]
+  post:
+    description: |
+      The token endpoint. Use only one of the authorization types: `header`, or `client_id` and `client_secret` parameters.
+      For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.2">OAuth 2.0 specification (rfc6749#section-3.2)</a> and <a target="blank" title="Getting Started" href="/gettingstarted/index.html">Getting Started</a> tutorial.
+
+    headers:
+      hybris-tenant:
+        type: string
+        description: |
+          The tenant that the caller is acting upon.
+
+          Please note that this header's value is always lowercase.
+
+        pattern: "^[a-z][a-z0-9]+$"
+        minLength: 3
+        maxLength: 16
+        example: myexampleshop
+        required: false
+      hybris-client:
+        type: string
+        description: |
+          The identifier of the caller that is making the request.
+
+          For the purpose of the request, the client is said to be a *trusted client*, if, and only if, the `hybris-user` header is absent.
+          Please note that both dot-separated parts of this header's value are always lowercase.
+
+        pattern: |
+          ^[a-z][a-z0-9-]{1,14}[a-z0-9][.][a-z][a-z0-9-]{0,22}[a-z0-9]$
+        minLength: 6
+        maxLength: 41
+        example: myexample.myawesomeclient
+        required: false
+      hybris-client-id:
+        type: string
+        description: |
+          The `hybris-client-id` used to acquire the currently used access token. Providing the option to check if the current client id is indeed allowed to use the resource.
+
+        example: C0Kl5Sta1BMiQSqBQyYL5c0yRAwIr94a
+        required: false
+      hybris-external-path:
+        type: string
+        description: |
+          The public base path used by the calling client to make the request.
+
+        example: /hybris/echo/v1
+        required: false
+      hybris-external-url:
+        type: string
+        description: |
+          The public base URL used by the calling client to make the request.
+
+        example: https://api.yaas.io/hybris/echo/v1/
+        required: false
+      hybris-user:
+        type: string
+        description: |
+          The identifier of the authenticated user.
+
+          This is the user that obtained the OAuth 2.0 access token. In YaaS, the user identifier usually is an email address.
+
+          If this header is absent, but the `hybris-client` header is set, the request is said to be triggered by a *trusted client*. That is a service that authenticates itself, rather than leaving authentication to a user.
+
+        example: "mustermann@hybris.com"
+        required: false
+      hybris-scopes:
+        type: string
+        description: |
+          List of authorization scopes that are granted to the incoming request.
+
+          Distinct scopes are separated by single space characters and may be listed in any order. Each scope has a maximum length of 128 characters, and it typically is of the form `<org_base_path>.<service_name>_<scope_name>`. Please note that scopes are case sensitive.
+
+          This header may be empty or absent, e.g. when the request does not require any authorization scopes, or the caller cannot obtain any.
+
+        pattern: "^([a-zA-Z0-9._=-]{1,128}( [a-zA-Z0-9._=-]{1,128})*)?$"
+        example: my-org.myService_view my-org.myService_manage
+        required: false
+      hybris-request-id:
+        type: string
+        description: |
+          Unique identifier of the current HTTP request chain. The service propagates it unaltered whenever it makes a subsequent request to another YaaS service.
+
+        example: Ahd75sgAf54d
+        required: false
+      hybris-hop:
+        type: integer
+        description: |
+          The level of depth in the current HTTP request chain. The service propagates it unaltered whenever it makes a subsequent request to another YaaS service.
+
+        minimum: 1
+        example: 3
+        default: 1
+        required: false
+      hybris-org:
+        type: string
+        description: |
+          The identifier of the organization the caller is acting upon.
+
+        example: 59cc4b46f5ce83bf493f7h29
+        required: false
+      hybris-target-url:
+        type: string
+        description: |
+          The full public URL used by the calling client to make the request
+
+        example: https://api.yaas.io/hybris/echo/v1/myresource/1?fields=id
+        required: false
+      Authorization:
+        type: string
+        description: |
+          Provides the basic authorization.
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.3.1">OAuth 2.0 specification (rfc6749#section-2.3.1)</a>.
+
+        example: Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW
+        repeat: false
+        required: false
+    body:
+      application/x-www-form-urlencoded:
+        formParameters:
+          grant_type:
+            description: |
+              The grant type of the request. The value MUST be set to `client_credentials`.
+
+            type: string
+            required: true
+            repeat: false
+            default: client_credentials
+            example: client_credentials
+            displayName: grant_type
+          scope:
+            description: |
+              Lists the requested scope of the access.<br/>
+              For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.<br/>
+              The predefined scope is:<br/>
+              - **hybris.tenant={tenantName}** - This enables you to specify the tenant for which an access token should be issued.<br/>
+                It may be used for multi-tenant clients: Services or Builder modules. It is set to the ID of the team that created the client if not passed. This must be set to the ID of the project that should be used in subsequent requests with the access token. For single-tenant clients when the client_id of the project is used, do not set this parameter.
+
+            type: string
+            required: false
+            repeat: false
+            example: hybris.tenant=fa4dvht53fgb hybris.manage hybris.view
+            displayName: scope
+          client_id:
+            description: |
+              Client identifier. This is required if the **Authorization** header is omitted.<br/>
+              For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.2">OAuth 2.0 specification (rfc6749#section-2.2)</a>.
+
+            type: string
+            required: false
+            repeat: false
+            displayName: client_id
+          client_secret:
+            description: |
+              Client secret. This is required if the **Authorization** header is omitted.<br/>
+              For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.3.1">OAuth 2.0 specification (rfc6749#section-2.3.1)</a>.
+
+            type: string
+            required: false
+            repeat: false
+            displayName: client_secret
+          hybris-session-id:
+            description: |
+              Session identifier. It is generated if not passed.
+
+            type: string
+            required: false
+            repeat: false
+            displayName: hybris-session-id
+    responses:
+      200:
+        body:
+          application/json:
+            schema: clientCredentialsResponse
+            example: |
+              {
+                  "access_token": "2YotnFZFEjr1zCsicMWpAA",
+                  "expires_in": 3600,
+                  "token_type": "Bearer",
+                  "scope": "hybris.product_manage hybris.product_read"
+              }
+      400:
+        description: |
+          The bad request error is returned if:
+          <ul>
+            <li>The Authorization header is missing</li>
+            <li>client_id is missing or has an invalid value</li>
+            <li>grant_type is missing or has an invalid value</li>
+            <li>hybris-tenant is missing</li>
+          </ul>
+          For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-5.2">OAuth 2.0 specification (rfc6749#section-5.2)</a>.</li>
+
+        body:
+          application/json:
+            example: |
+              {
+                  "error": "invalid_grant",
+                  "errorDescription": "client_code is not supported grant type."
+              }
+            schema: oauth2Error
+      403:
+        description: |
+          Given authorization scopes are not sufficient and do not match required scopes.
+
+        body:
+          application/json:
+            example: |
+              {
+                  "status": 403,
+                  "message": "Given request does not have required scopes. It is not authorized to perform this operation.",
+                  "type": "insufficient_permissions"
+              }
+            schema: |
+              {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "title": "error",
+                  "description": "Schema for API specified errors.",
+                  "type": "object",
+                  "properties": {
+                      "status": {
+                          "type": "integer",
+                          "description": "original HTTP error code, should be consistent with the response HTTP code",
+                          "minimum": 100,
+                          "maximum": 599
+                      },
+                      "type": {
+                          "type": "string",
+                          "description": "classification of the error type, lower case with underscore eg validation_failure",
+                          "pattern": "[a-z]+[a-z_]*[a-z]+"
+                      },
+                      "message": {
+                          "type": "string",
+                          "description": "descriptive error message for debugging"
+                      },
+                      "moreInfo": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to documentation to investigate further and finding support"
+                      },
+                      "details": {
+                          "type": "array",
+                          "description": "list of problems causing this error",
+                          "items": {
+                              "$schema": "http://json-schema.org/draft-04/schema#",
+                              "title": "errorDetail",
+                              "description": "schema for specific error cause",
+                              "type": "object",
+                              "properties": {
+                                  "field": {
+                                      "type": "string",
+                                      "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                  },
+                                  "type": {
+                                      "type": "string",
+                                      "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                      "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                  },
+                                  "message": {
+                                      "type": "string",
+                                      "description": "descriptive error detail message for debugging"
+                                  },
+                                  "moreInfo": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "link to documentation to investigate further and finding support for error detail"
+                                  }
+                              },
+                              "required": [
+                                  "type"
+                              ]
+                          }
+                      }
+                  },
+                  "required": [
+                      "status",
+                      "type"
+                  ]
+              }
+/userinfo:
+  is: [ oauth2 ]
+  description: |
+    OpenID UserInfo Endpoint. This is used to get claims about the authenticated end user.<br/>
+    For more information, see the <a target="blank" title="UserInfo Endpoint - OpenId Connect Core 1.0 Specification" href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.5.3">UserInfo Endpoint - OpenId Connect Core 1.0 Specification (section 5.3)</a>.
+
+  get:
+    description: |
+      Returns claims about the authenticated end user.
+
+    headers:
+      Authorization:
+        type: string
+        description: |
+          Used to send a valid OAuth2 access token.
+
+        example: Bearer access_token
+        repeat: false
+        required: true
+    responses:
+      200:
+        description: Claims about the authenticated end user.
+        body:
+          application/json:
+            schema: |
+              {
+                  "$schema": "http://schemas-schema.org/draft-04/schema",
+                  "type": "object",
+                  "title": "UserInfo Claims",
+                  "properties": {
+                      "sub": {
+                          "description": "Subject - Identifier for the End-User at the Issuer",
+                          "type": "string",
+                          "required": true
+                      },
+                      "tenant": {
+                          "description": "Tenant for which End-User is authenticated (Private Claim)",
+                          "type": "string",
+                          "required": false
+                      }
+                  }
+              }
+            example: |
+              {
+                  "sub": "test@hybris.com",
+                  "tenant": "sampleTenant"
+              }
+      401:
+        description: |
+          Given request is unauthorized. Bad or expired token. Reauthenticate
+          the user. Any details will be provided within the response payload.
+
+        body:
+          application/json:
+            example: |
+              {
+                  "status": 401,
+                  "message": "Authorization: Unauthorized. Bearer TOKEN is invalid",
+                  "type": "insufficient_credentials",
+                  "moreInfo": "https://api.yaas.io/patterns/errortypes.html"
+              }
+            schema: |
+              {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "title": "error",
+                  "description": "schema for API specified errors",
+                  "type": "object",
+                  "properties": {
+                      "status": {
+                          "type": "integer",
+                          "description": "original HTTP error code, should be consistent with the response HTTP code",
+                          "minimum": 100,
+                          "maximum": 599
+                      },
+                      "type": {
+                          "type": "string",
+                          "description": "classification of the error type, lower case with underscore eg validation_failure",
+                          "pattern": "[a-z]+[a-z_]*[a-z]+"
+                      },
+                      "message": {
+                          "type": "string",
+                          "description": "descriptive error message for debugging"
+                      },
+                      "moreInfo": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to documentation to investigate further and finding support"
+                      },
+                      "details": {
+                          "type": "array",
+                          "description": "list of problems causing this error",
+                          "items": {
+                              "$schema": "http://json-schema.org/draft-04/schema#",
+                              "title": "errorDetail",
+                              "description": "schema for specific error cause",
+                              "type": "object",
+                              "properties": {
+                                  "field": {
+                                      "type": "string",
+                                      "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                  },
+                                  "type": {
+                                      "type": "string",
+                                      "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                      "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                  },
+                                  "message": {
+                                      "type": "string",
+                                      "description": "descriptive error detail message for debugging"
+                                  },
+                                  "moreInfo": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "link to documentation to investigate further and finding support for error detail"
+                                  }
+                              },
+                              "required": [
+                                  "type"
+                              ]
+                          }
+                      }
+                  },
+                  "required": [
+                      "status",
+                      "type"
+                  ]
+              }
+      403:
+        description: |
+          Evaluated request scopes in access token are not sufficient and do not match required scopes.
+
+        body:
+          application/json:
+            example: |
+              {
+                  "status": 403,
+                  "message": "Given request does not have required scopes in access token. It is not authorized to perform this operation.",
+                  "type": "insufficient_permissions"
+              }
+            schema: |
+              {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "title": "error",
+                  "description": "schema for API specified errors",
+                  "type": "object",
+                  "properties": {
+                      "status": {
+                          "type": "integer",
+                          "description": "original HTTP error code, should be consistent with the response HTTP code",
+                          "minimum": 100,
+                          "maximum": 599
+                      },
+                      "type": {
+                          "type": "string",
+                          "description": "classification of the error type, lower case with underscore eg validation_failure",
+                          "pattern": "[a-z]+[a-z_]*[a-z]+"
+                      },
+                      "message": {
+                          "type": "string",
+                          "description": "descriptive error message for debugging"
+                      },
+                      "moreInfo": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to documentation to investigate further and finding support"
+                      },
+                      "details": {
+                          "type": "array",
+                          "description": "list of problems causing this error",
+                          "items": {
+                              "$schema": "http://json-schema.org/draft-04/schema#",
+                              "title": "errorDetail",
+                              "description": "schema for specific error cause",
+                              "type": "object",
+                              "properties": {
+                                  "field": {
+                                      "type": "string",
+                                      "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                  },
+                                  "type": {
+                                      "type": "string",
+                                      "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                      "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                  },
+                                  "message": {
+                                      "type": "string",
+                                      "description": "descriptive error detail message for debugging"
+                                  },
+                                  "moreInfo": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "link to documentation to investigate further and finding support for error detail"
+                                  }
+                              },
+                              "required": [
+                                  "type"
+                              ]
+                          }
+                      }
+                  },
+                  "required": [
+                      "status",
+                      "type"
+                  ]
+              }
+  post:
+    description: |
+      Returns claims about the authenticated end user.
+
+    headers:
+      Authorization:
+        type: string
+        description: |
+          Used to send a valid OAuth2 access token.
+
+        example: Bearer access_token
+        repeat: false
+        required: true
+    responses:
+      200:
+        description: Claims about the authenticated end user.
+        body:
+          application/json:
+            schema: |
+              {
+                  "$schema": "http://schemas-schema.org/draft-04/schema",
+                  "type": "object",
+                  "title": "UserInfo Claims",
+                  "properties": {
+                      "sub": {
+                          "description": "Subject - Identifier for the End-User at the Issuer",
+                          "type": "string",
+                          "required": true
+                      },
+                      "tenant": {
+                          "description": "Tenant for which End-User is authenticated (Private Claim)",
+                          "type": "string",
+                          "required": false
+                      }
+                  }
+              }
+            example: |
+              {
+                  "sub": "test@hybris.com",
+                  "tenant": "sampleTenant"
+              }
+      401:
+        description: |
+          Given request is unauthorized. Bad or expired token. Reauthenticate
+          the user. Any details will be provided within the response payload.
+
+        body:
+          application/json:
+            example: |
+              {
+                  "status": 401,
+                  "message": "Authorization: Unauthorized. Bearer TOKEN is invalid",
+                  "type": "insufficient_credentials",
+                  "moreInfo": "https://api.yaas.io/patterns/errortypes.html"
+              }
+            schema: |
+              {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "title": "error",
+                  "description": "schema for API specified errors",
+                  "type": "object",
+                  "properties": {
+                      "status": {
+                          "type": "integer",
+                          "description": "original HTTP error code, should be consistent with the response HTTP code",
+                          "minimum": 100,
+                          "maximum": 599
+                      },
+                      "type": {
+                          "type": "string",
+                          "description": "classification of the error type, lower case with underscore eg validation_failure",
+                          "pattern": "[a-z]+[a-z_]*[a-z]+"
+                      },
+                      "message": {
+                          "type": "string",
+                          "description": "descriptive error message for debugging"
+                      },
+                      "moreInfo": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to documentation to investigate further and finding support"
+                      },
+                      "details": {
+                          "type": "array",
+                          "description": "list of problems causing this error",
+                          "items": {
+                              "$schema": "http://json-schema.org/draft-04/schema#",
+                              "title": "errorDetail",
+                              "description": "schema for specific error cause",
+                              "type": "object",
+                              "properties": {
+                                  "field": {
+                                      "type": "string",
+                                      "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                  },
+                                  "type": {
+                                      "type": "string",
+                                      "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                      "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                  },
+                                  "message": {
+                                      "type": "string",
+                                      "description": "descriptive error detail message for debugging"
+                                  },
+                                  "moreInfo": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "link to documentation to investigate further and finding support for error detail"
+                                  }
+                              },
+                              "required": [
+                                  "type"
+                              ]
+                          }
+                      }
+                  },
+                  "required": [
+                      "status",
+                      "type"
+                  ]
+              }
+      403:
+        description: |
+          Evaluated request scopes in access token are not sufficient and do not match required scopes.
+
+        body:
+          application/json:
+            example: |
+              {
+                  "status": 403,
+                  "message": "Given request does not have required scopes in access token. It is not authorized to perform this operation.",
+                  "type": "insufficient_permissions"
+              }
+            schema: |
+              {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "title": "error",
+                  "description": "schema for API specified errors",
+                  "type": "object",
+                  "properties": {
+                      "status": {
+                          "type": "integer",
+                          "description": "original HTTP error code, should be consistent with the response HTTP code",
+                          "minimum": 100,
+                          "maximum": 599
+                      },
+                      "type": {
+                          "type": "string",
+                          "description": "classification of the error type, lower case with underscore eg validation_failure",
+                          "pattern": "[a-z]+[a-z_]*[a-z]+"
+                      },
+                      "message": {
+                          "type": "string",
+                          "description": "descriptive error message for debugging"
+                      },
+                      "moreInfo": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "link to documentation to investigate further and finding support"
+                      },
+                      "details": {
+                          "type": "array",
+                          "description": "list of problems causing this error",
+                          "items": {
+                              "$schema": "http://json-schema.org/draft-04/schema#",
+                              "title": "errorDetail",
+                              "description": "schema for specific error cause",
+                              "type": "object",
+                              "properties": {
+                                  "field": {
+                                      "type": "string",
+                                      "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                                  },
+                                  "type": {
+                                      "type": "string",
+                                      "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                                      "pattern": "[a-z]+[a-z_]*[a-z]+"
+                                  },
+                                  "message": {
+                                      "type": "string",
+                                      "description": "descriptive error detail message for debugging"
+                                  },
+                                  "moreInfo": {
+                                      "type": "string",
+                                      "format": "uri",
+                                      "description": "link to documentation to investigate further and finding support for error detail"
+                                  }
+                              },
+                              "required": [
+                                  "type"
+                              ]
+                          }
+                      }
+                  },
+                  "required": [
+                      "status",
+                      "type"
+                  ]
+              }

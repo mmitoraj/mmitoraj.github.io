@@ -8655,10 +8655,10 @@ label.control-label.required:after {
 }
 .checkbox {
   position: relative;
-  padding-left: 33px;
-  line-height: 23px;
+  padding-left: 34px;
+  line-height: 24px;
   margin-bottom: 14px;
-  min-height: 23px;
+  min-height: 24px;
 }
 .checkbox input {
   opacity: 0;
@@ -8673,16 +8673,19 @@ label.control-label.required:after {
   position: absolute;
   top: 0;
   left: 0;
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   background: #0486e0;
   border-radius: 0px;
-  content: "";
+  content: "\e004";
   display: inline-block;
-  font-family: 'Glyphicons Halflings';
+  font-family: 'hyicon';
+  font-size: 20px;
   color: #fff;
   line-height: 15px;
-  border: 4.5px solid #0486e0;
+  border: 0 solid #0486e0;
+  border-top-width: 5px;
+  border-left-width: 2px;
 }
 .checkbox input:disabled + label:before {
   opacity: 0.3;
@@ -8702,11 +8705,11 @@ label.control-label.required:after {
   left: 0;
   content: "";
   display: block;
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   background: #fff;
   border-radius: 0px;
-  border: 4.5px solid #27394f;
+  border: 3px solid #27394f;
 }
 .checkbox .note {
   font-size: 12px;
@@ -8914,7 +8917,7 @@ select[multiple].form-readonly-text.form-readonly-text-sm {
   color: currentColor;
 }
 .help-inline .help-block-inline {
-  font-size: 15px;
+  font-size: 14px;
   vertical-align: inherit;
   display: inline;
 }
@@ -8974,6 +8977,9 @@ select[multiple].form-readonly-text.form-readonly-text-sm {
 }
 .help-inline--section.help-inline--tooltip {
   margin-bottom: 0;
+  display: inline-block;
+  float: none;
+  position: relative;
 }
 @media (max-width: 480px) {
   .help-inline--section.help-inline--tooltip {
@@ -8987,15 +8993,11 @@ select[multiple].form-readonly-text.form-readonly-text-sm {
   display: block;
   margin-bottom: 0;
 }
+.form-group__inline .form-readonly-text,
 .form-group__inline .form-readonly-text__inline {
   display: inline-block;
 }
-.form-group__inline .section-help--tooltip__inline {
-  display: inline-block;
-  float: none;
-  position: relative;
-}
-.form-group__inline .section-help--tooltip__inline .help-icon-inline:before {
+.form-group__inline .help-icon-inline:before {
   margin-top: 5px;
 }
 .feedback-menu {
@@ -9013,8 +9015,8 @@ select[multiple].form-readonly-text.form-readonly-text-sm {
 }
 @font-face {
   font-family: "hyicon";
-  src: url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?1486659560');
-  src: url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.eot?#iefix1486659560') format('embedded-opentype'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.woff?1486659560') format('woff'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.ttf?1486659560') format('truetype'), url('https://mmitoraj.github.io/bower_components/hyTechne/dist/fonts/hyicon.svg?1486659560#hyicon') format('svg');
+  src: url('/bower_components/hyTechne/dist/fonts/hyicon.eot?1494352258');
+  src: url('/bower_components/hyTechne/dist/fonts/hyicon.eot?#iefix1494352258') format('embedded-opentype'), url('/bower_components/hyTechne/dist/fonts/hyicon.woff?1494352258') format('woff'), url('/bower_components/hyTechne/dist/fonts/hyicon.ttf?1494352258') format('truetype'), url('/bower_components/hyTechne/dist/fonts/hyicon.svg?1494352258#hyicon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -11188,6 +11190,112 @@ table.techne-table tr.y-add > td {
   position: absolute;
   width: 100%;
 }
+/*
+Markup:
+ <div class="product-thumbnail">
+     <div class="product-image">
+         <div class="img-wrapper">
+         <span class="img-spacer"></span>
+         <img src="../images/product-thumbnail.png" class="img img-responsive full-width">
+         </div>
+     </div>
+     <div class="product-details">
+         <div class="product-name">
+             <a>Product Name</a>
+         </div>
+         <div class="product-code">
+             000123456789000
+         </div>
+         <div class="product-price ">
+             <span class="product-price-element">
+                <span class="product-price-amount">40.20</span>
+                <span class="product-price-currency">USD</span>
+             </span>
+         </div>
+         <div class="label label-success">Active</div>
+     </div>
+ </div>
+
+Pattern 15.1
+*/
+/*
+Display discounted prices
+
+The Product Thumbnail can also display discounted prices. The original price will be displayed beside the discounted price. Both price have different styles to be easily recognizable.
+
+Markup:
+ <div class="product-thumbnail">
+     <div class="product-image">
+         <div class="img-wrapper">
+         <span class="img-spacer"></span>
+         <img src="../images/product-thumbnail.png" class="img img-responsive full-width">
+         </div>
+     </div>
+     <div class="product-details">
+         <div class="product-name">
+             <a>Product Name</a>
+         </div>
+         <div class="product-code">
+             000123456789000
+         </div>
+         <div class="product-price ">
+             <span class="product-price-element product-price-original">
+                <span class="product-price-amount">47.48</span></span>
+             <span class="product-price-separator">&nbsp;</span>
+             <span class="product-price-element product-price-effective">
+                <span class="product-price-amount">40.20</span>
+                <span class="product-price-currency">USD</span>
+             </span>
+         </div>
+         <div class="label label-success">Active</div>
+     </div>
+ </div>
+
+Pattern 15.2
+*/
+/*
+Display a price range
+
+The Product Thumbnail Pattern can also display price ranges. By adding the class .product-price-range to the element with the class .product-price-element the price ranges will be displayed one below the other.
+
+Markup:
+ <div class="product-thumbnail">
+     <div class="product-image">
+         <div class="img-wrapper">
+         <span class="img-spacer"></span>
+         <img src="../images/product-thumbnail.png" class="img img-responsive full-width">
+         </div>
+     </div>
+     <div class="product-details">
+         <div class="product-name">
+             <a>Product Name</a>
+         </div>
+         <div class="product-code">
+             000123456789000
+         </div>
+         <div class="product-price ">
+             <span class="product-price-element product-price-range product-price-original">
+                <span class="product-price-amount">
+                    47.48  
+                    <span class="product-price-separator">&nbsp;&ndash;&nbsp;</span>
+                    49.48
+                </span>
+             </span>
+             <span class="product-price-element product-price-range product-price-effective">
+                <span class="product-price-amount">
+                    40.20
+                    <span class="product-price-separator">&nbsp;&ndash;&nbsp;</span>
+                    42.48
+                </span>
+                <span class="product-price-currency">USD</span>
+             </span>
+         </div>
+         <div class="label label-success">Active</div>
+     </div>
+ </div>
+
+Pattern 15.3
+*/
 .product-grid {
   display: flex;
   flex-wrap: wrap;
@@ -11269,13 +11377,18 @@ table.techne-table tr.y-add > td {
   font-size: 15px;
   margin-bottom: 10px;
 }
-.product-thumbnail .product-price-discount {
-  color: #ff3b30;
-  display: inline-block;
+.product-thumbnail .product-price .product-price-element.product-price-original {
+  text-decoration: line-through;
 }
-a.product-thumbnail .product-price-discount:hover,
-a.product-thumbnail .product-price-discount:focus {
+.product-thumbnail .product-price .product-price-element.product-price-effective {
+  color: #ff3b30;
+}
+a.product-thumbnail .product-price .product-price-element.product-price-effective:hover,
+a.product-thumbnail .product-price .product-price-element.product-price-effective:focus {
   color: #fc0d00;
+}
+.product-thumbnail .product-price .product-price-element.product-price-range {
+  display: block;
 }
 .product-thumbnail .product-out-stock {
   height: 20px;
@@ -11377,7 +11490,6 @@ table.techne-table tr.new-item:hover {
 }
 .thumbnail-shape--circle {
   border-radius: 50%;
-  overflow: hidden;
 }
 .thumbnail-shape--rectangle {
   background-size: contain;
@@ -11431,14 +11543,81 @@ table.techne-table tr.new-item:hover {
   color: #7f90a4;
 }
 .thumbnail--default-pic__сircle {
-  background-image: url("https://mmitoraj.github.io/images/default_circle-pic.png");
+  background-image: url("/images/default_circle-pic.png");
 }
 .thumbnail--default-pic__rectangle {
-  background-image: url("https://mmitoraj.github.io/images/default_square-pic.png");
+  background-image: url("/images/default_square-pic.png");
   background-size: contain;
 }
 .thumbnail--default-pic__hexagon {
-  background-image: url("https://mmitoraj.github.io/images/default_hexagon-pic.png");
+  background-image: url("/images/default_hexagon-pic.png");
+}
+.crop-img--wrapper {
+  padding-bottom: 0!important;
+}
+.crop-img--wrapper .crop-img--table {
+  width: 100%;
+  display: table;
+}
+.crop-img--wrapper .crop-img--table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+.crop-img--wrapper .crop-img--original {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.crop-img--wrapper .crop-img--source {
+  width: 200px;
+  height: 200px;
+}
+.crop-img--wrapper .jcrop-keymgr {
+  visibility: hidden;
+}
+@media (max-width: 768px) {
+  .crop-img--wrapper .jcrop-handle {
+    border-radius: 20px;
+    width: 41px;
+    height: 41px;
+    background: #c5cdd6;
+    opacity: 0.5;
+  }
+  .crop-img--wrapper .jcrop-handle.ord-n,
+  .crop-img--wrapper .jcrop-handle.ord-w,
+  .crop-img--wrapper .jcrop-handle.ord-s,
+  .crop-img--wrapper .jcrop-handle.ord-e {
+    display: none;
+  }
+  .crop-img--wrapper .jcrop-dragbar {
+    display: none;
+  }
+  .crop-img--wrapper .jcrop-handle.ord-nw {
+    margin-left: -21px;
+    margin-top: -21px;
+  }
+  .crop-img--wrapper .jcrop-handle.ord-sw {
+    margin-left: -21px;
+    margin-bottom: -21px;
+  }
+  .crop-img--wrapper .jcrop-handle.ord-ne {
+    margin-right: -21px;
+    margin-top: -21px;
+  }
+  .crop-img--wrapper .jcrop-handle.ord-se {
+    margin-right: -21px;
+    margin-bottom: -21px;
+  }
+  .crop-img--wrapper .jcrop-vline,
+  .crop-img--wrapper .jcrop-hline {
+    background: #c5cdd6;
+  }
+  .crop-img--wrapper .jcrop-vline {
+    width: 3px !important;
+  }
+  .crop-img--wrapper .jcrop-hline {
+    height: 3px !important;
+  }
 }
 .hint-text {
   color: #abb2bb;
@@ -12194,11 +12373,11 @@ Syntax for sets:
   background-image: linear-gradient(top, #0486e0 0%, #0b75be 100%);
 }
 .u-background-blueprint::after {
-  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-normal.png');
+  background-image: url('/images/featured-items-bg-lines-normal.png');
   z-index: 0;
 }
 .u-background-blueprint::before {
-  background-image: url('https://mmitoraj.github.io/images/featured-items-bg-lines-dotted.png');
+  background-image: url('/images/featured-items-bg-lines-dotted.png');
   z-index: 1;
 }
 .u-background-blueprint--2 {
@@ -12211,11 +12390,11 @@ Syntax for sets:
   background-image: linear-gradient(top, #1b99ec 0%, #0881d4 100%);
 }
 .u-background-blueprint--2::after {
-  background-image: url('https://mmitoraj.github.io/images/grid.png');
+  background-image: url('/images/grid.png');
   z-index: 0;
 }
 .u-background-blueprint--3 {
-  background: url('https://mmitoraj.github.io/images/blueprint-grid--gray.png');
+  background: url('/images/blueprint-grid--gray.png');
 }
 .u-background-grayish-blue {
   background-color: #e0e9f0;

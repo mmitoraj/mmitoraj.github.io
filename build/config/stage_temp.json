@@ -12,7 +12,8 @@
       "accountService": "https://api.stage.yaas.io/hybris/account/v1/",
       "clientId": "4lfyAwV3zeskWEIzoIMxohRMVYd0YFXI",
       "redirUrl": "https://devportal-temp.stage.yaas.io/auth.html",
-      "loginCssUrl": "https://devportal-temp.stage.yaas.io/styles/auth-iframe.css"
+      "loginCssUrl": "https://devportal-temp.stage.yaas.io/styles/auth-iframe.css",
+      "legacyAuthentication": true
     },
     "customLocation": {
       "path": "./apinotebooks",

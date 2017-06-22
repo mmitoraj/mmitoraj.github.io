@@ -3,7 +3,7 @@
 	<title>Release Notes | YaaS Dev Portal</title>
 	<link href="https://mmitoraj.github.io/atom.xml" rel="self"/>
 	<link href="https://mmitoraj.github.io"/>
-	<updated>2017-03-27T12:02:31.808Z</updated>
+	<updated>2017-06-22T05:47:19.977Z</updated>
 	<id>https://mmitoraj.github.io/</id>
 	<author>
 		<name></name>
@@ -12,12 +12,13 @@
 	
 
 		<entry>
-			<title>Minerva v1</title>
-			<link href="https://mmitoraj.github.io/rn/services/minerva/latest/2016-05-27-MinervaRelease.html"/>
-			<content type="html">&lt;p&gt;This is a first release of the Minerva service.&lt;/p&gt;
+			<title>Hodor Ipsum v1</title>
+			<link href="https://mmitoraj.github.io/rn/services/hodoripsum/latest/972-06-24-Cedynia.html"/>
+			<content type="html">&lt;p&gt;&lt;img src=&quot;img/hodor.png&quot; class=&quot;image-testing&quot; alt=&quot;Hodor&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor, hodor. Hodor hodor. Hodor. Hodor, hodor hodor... Hodor hodor hodor. Hodor, hodor... Hodor hodor hodor hodor hodor hodor hodor? Hodor hodor HODOR! Hodor hodor hodor... Hodor hodor hodor... Hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor - hodor - hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor.&lt;/p&gt;
 </content>
-			<updated>2016-05-27T00:00:00.000Z</updated>
-			<id>https://mmitoraj.github.io/rn/services/minerva/latest/2016-05-27-MinervaRelease.html</id>
+			<updated>0972-06-24T00:00:00.000Z</updated>
+			<id>https://mmitoraj.github.io/rn/services/hodoripsum/latest/972-06-24-Cedynia.html</id>
 		</entry>
 		
 	

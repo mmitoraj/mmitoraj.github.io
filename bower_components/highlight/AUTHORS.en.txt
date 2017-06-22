@@ -243,3 +243,12 @@ Contributors:
 - Ike Ku <dempfi@yahoo.com>
 - Andres Täht <andres.taht@gmail.com>
 - Rene Saarsoo <nene@triin.net>
+- Jordi Petit <jordi.petit@gmail.com>
+- Raphaël Parrëe <rparree@edc4it.com>
+- Joël Porquet <joel@porquet.org>
+- Alex Arslan <ararslan@comcast.net>
+- Stanislav Belov <stbelov@gmail.com>
+- Ivan Dementev <ivan_div@mail.ru>
+- Nicolas LLOBERA <nllobera@gmail.com>
+- Morten Piibeleht <morten.piibeleht@gmail.com>
+- Martin Clausen <martin.clausene@gmail.com>

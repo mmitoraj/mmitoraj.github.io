@@ -1,0 +1,348 @@
+<!DOCTYPE html><html lang="en"><head><!-- Meta --><meta charset="utf-8"><meta http-equiv="content-type" content="text/html; charset=utf-8"><!-- Use the .htaccess and remove these lines to avoid edge case issues. More info: h5bp.com/i/378 --><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- Our site title and description --><title>Samuel L Ipsum | Simple API Docs Skeleton</title><meta name="description" content="Skeleton for your API Documentation"><meta name="keywords" content=""><meta name="author" content=""><!-- Output DocPad produced meta elements --><meta name="generator" content="DocPad v6.78.6"><!-- Mobile viewport optimized: h5bp.com/viewport --><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="alternate" type="application/rss+xml" title="DevPortal Blog!" href="/atom.xml"><!-- favicons --><link rel="apple-touch-icon" sizes="57x57" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="114x114" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="72x72" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="144x144" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="60x60" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="120x120" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="76x76" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="152x152" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="180x180" href="https://mmitoraj.github.io/images/favicon/apple-touch-icon-180x180.png"><link rel="icon" type="image/png" href="https://mmitoraj.github.io/images/favicon/favicon-192x192.png" sizes="192x192"><link rel="icon" type="image/png" href="https://mmitoraj.github.io/images/favicon/favicon-160x160.png" sizes="160x160"><link rel="icon" type="image/png" href="https://mmitoraj.github.io/images/favicon/favicon-96x96.png" sizes="96x96"><link rel="icon" type="image/png" href="https://mmitoraj.github.io/images/favicon/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="https://mmitoraj.github.io/images/favicon/favicon-32x32.png" sizes="32x32"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-TileImage" content="https://mmitoraj.github.io/images/favicon//mstile-144x144.png"><!-- Shims: IE6-8 support of HTML5 elements --><!--[if lt IE 9]>
+      <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><!-- Styles --><link rel="stylesheet" type="text/css" href="https://www.yaas.io/globalresources/v3/css/global.min.css" media="screen, projection, print"><link rel="stylesheet" href="/styles/devportal-yaas.css"><!-- header scripts  --><script src="/scripts/devportal-yaas-head.min.js"></script><script src="https://www.yaas.io/globalresources/v3/js/global.novendor.min.js"></script></head><body class=""><!-- Content --><div class="main-content"><section class="row-offcanvas row-offcanvas-left"><header class="navbar-super-holder"><div class="navbar navbar-inverse mobile-nav"><button data-toggle="offcanvas" class="btn btn-primary btn-xs navbar-toggle navbar-btn" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button><ul role="menu" class="nav nav-pills hidden-xs" id="desktop-menu"><li><a href="/" property="dc:title" id="home-topNav">Home</a></li><li><a href="/solutions/" property="dc:title" id="solutions-topNav">Solutions</a></li><li><a href="/services/" property="dc:title" id="apis-topNav">API Docs</a></li><li><a href="/rn/" property="dc:title" id="rn-topNav">Release Notes</a></li></ul></div></header><div class="content-offcanvas" id="content"><div class="container-fluid"><div id="sidebar" class="sidebar-offcanvas" role="navigation"><div class="api-nav left-nav" id="left_nav"><nav class="bs-docs-sidebar"><ul class="nav"><li class="back-link"><a href="/services/">Back to API Docs</a></li><li class="nav-header">Samuel L Ipsum</li><li><a href="#Overview">Overview <span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span> <img class="left-nav__play-button svg u-hide-permanently" src="/images/icons/ico_interactive.svg" width="26" height="26" alt=""></a></li><!-- API Reference Generated Docu replaced by gulp--><li><a href="#ApiReference" id="parent_api_ref_nav"><span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span>API Reference</a></li><li><a href="#Tutorial">Tutorial <span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span> <img class="left-nav__play-button svg u-hide-permanently" src="/images/icons/ico_interactive.svg" width="26" height="26" alt=""></a><ul class="nav nav-stacked"><li><a href="#SamuelinaBar">Samuel in a Bar <span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span> <img class="left-nav__play-button svg u-hide-permanently" src="/images/icons/ico_interactive.svg" width="26" height="26" alt=""></a></li><li><a href="#SamuelinaRoom">Samuel in a Room <span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span> <img class="left-nav__play-button svg u-hide-permanently" src="/images/icons/ico_interactive.svg" width="26" height="26" alt=""></a></li><li><a href="#SamuelinaCar">Samuel in a Car <span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span> <img class="left-nav__play-button svg u-hide-permanently" src="/images/icons/ico_interactive.svg" width="26" height="26" alt=""></a></li></ul></li><!-- GLOSSARY Docu--><li><a href="#Glossary">Glossary <span class="left-nav__icon hyicon hyicon-chevron u-hide-permanently"></span> <img class="left-nav__play-button svg u-hide-permanently" src="/images/icons/ico_interactive.svg" width="26" height="26" alt=""></a></li></ul><!-- open api console --> <a href="/services/samuellipsum/v1/apiconsole.html" class="btn btn-primary btn-open-console hidden-sm hidden-md hidden-lg">API CONSOLE</a><!-- end list of services  --></nav></div></div><div class="container-fluid"><div class="container-wrapper has-nav"><div class="content-wrapper"><!-- Main content --><div role="main"><div class="api-wrapper"><div class="sticky-page-header m-sticky-header"><div class="m-sticky-header__item m-sticky-header__item--left pull-left"><h1 class="m-sticky-header__title">Samuel L Ipsum</h1><!-- this part enables version dropdown with links between versions if there are more then one versions --><div class="m-sticky-header__subitem m-dropdown dropdown version-selector pull-left"><a class="m-dropdown__selector a-link a-link--contextual dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">v1<span class="m-dropdown__icon hyicon hyicon-arrow"></span></a><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1"><li role="presentation"><a role="menuitem" class="hrefToPrefix" tabindex="-1" href="/services/samuellipsum/v2/index.html">Latest - v2</a></li></ul></div></div><!-- open api console --> <a href="/services/samuellipsum/v1/apiconsole.html" class="btn btn-primary btn-open-console hidden-xs">API CONSOLE</a><div class="m-sticky-header__form-container service-links"><div class="m-sticky-header__form-element m-sticky-header__form-element--small-lg service-url raml-url hidden-xs"><div class="input-group"><span class="input-group-btn"><div class="btn-group"><button type="button" class="btn btn-default dropdown-toggle" id="api-spec-btn" aria-expanded="false"><img src="/images/icons/icon--download.svg" width="19" height="16">&nbsp;<span class="caret"></span></button><ul class="dropdown-menu" role="menu" id="api-spec-list"><li><a href="https://mmitoraj.github.io/services/samuellipsum/v1/api.raml" id="raml-download-link">Download RAML file</a></li></ul></div></span></div></div><div class="m-sticky-header__form-element m-sticky-header__form-element--large-lg service-url raml-url hidden-xs"><div class="input-group"><span class="m-sticky-header__form-label">RAML Url:</span> <input type="text" class="form-control form-control--has-label" value="https://mmitoraj.github.io/services/samuellipsum/v1/api.raml"> <span class="input-group-btn"><button id="copy-api-spec" data-clipboard-text="https://mmitoraj.github.io/services/samuellipsum/v1/api.raml" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="bottom" title="Copy RAML URL"><img src="/images/icons/icon--copy.svg" width="16" height="16"></button></span></div></div><!-- copy service url --><!--% if dbServiceUri.length > 10 : %--><div class="m-sticky-header__form-element m-sticky-header__form-element--large-lg service-url hidden-xs"><div class="input-group"><span class="m-sticky-header__form-label">Service Url:</span> <input type="text" class="form-control form-control--has-label" value="http://slipsum.com"> <span class="input-group-btn"><button id="copy-api-button" data-clipboard-text="http://slipsum.com" class="btn btn-default" type="button" data-toggle="tooltip" data-placement="bottom" title="Copy Service URL"><img src="/images/icons/icon--copy.svg" width="16" height="16"></button></span></div></div><!-- % end %--></div></div><div class="left-nav-collapse-warpper"><a href="#" class="collapse-left-nav"><img src="/images/icons/collapse-left-nav.svg" alt=""></a><a href="#" class="expand-left-nav"><img src="/images/icons/expand-left-nav.svg" alt=""></a></div><!-- Overview Document--><section id="Overview" class="group"><h2>Overview</h2><p></p><p><img src="img/samuel.png" alt="Samuel"></p><p><a href="http://slipsum.com/">http://slipsum.com/</a></p><!-- start slipsum code --><p>&lt;%- @partial(&quot;samuellipsum_raml_v1&quot;) %&gt;</p><p></p><h1>I can do that</h1>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.<p></p><p></p><h1>Is she dead, yes or no?</h1>You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don&#39;t know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I&#39;m breaking now. We said we&#39;d say it was the snow that killed the other two, but it wasn&#39;t. Nature is lethal but it doesn&#39;t hold a candle to man.<p></p><p></p><h1>Are you ready for the truth?</h1>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother&#39;s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.<p></p><p></p></section><hr><!-- API Reference Generated Docu--><section id="ApiReference" class="group"><h2>API Reference</h2><p></p><div class="panel panel-neutral panel-customapiref"><div class="panel-heading"><h3 id="authorize" class="panel-title">/authorize</h3></div><div class="panel-body"><div class="top-resource-description"><p>The OAuth2 Authorization Endpoint is used to authenticate and obtain an authorization grant.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1">OAuth 2.0 specification (rfc6749#section-3.1)</a> and <a target="blank" title="Getting Started" href="/gettingstarted/index.html">Getting Started</a> tutorial.</p></div><div class="panel-group"><div class="panel panel-neutral panel-neutral--only-margin-bottom panel-customapiref"><div class="panel-heading"><h4 id="#panel_authorize" class="panel-title"><span class="parent"></span>/authorize</h4></div><div id="panel_authorize"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#authorize_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Starts the authorization procedure with the parameters specified in the URL query.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#authorize_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>This starts the authorization procedure with the parameters specified in the request body (form parameters).</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="authorize_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="u-break-all"><span class="parent"></span>/authorize</span></h4></div><div class="modal-body"><div class="alert alert-success"><p>Starts the authorization procedure with the parameters specified in the URL query.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#authorize_get_request" data-toggle="tab">Request</a></li><li><a href="#authorize_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="authorize_get_request"><h3>Query Parameters</h3><ul><li><strong>response_type</strong>: <em>required (string)</em><p>This value can be "token" or "id_token token" (currently only the Implicit Grant flow, as described in <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.1">rfc6749#section-4.2.1</a>, is supported).<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.1">OAuth 2.0 specification (rfc6749#section-3.1.1)</a>.</p></li><li><strong>client_id</strong>: <em>required (string)</em><p>This is the client identifier, available in the Client Authorization section in the Builder. For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.2">OAuth 2.0 specification (rfc6749#section-2.2)</a>.</p></li><li><strong>redirect_uri</strong>: <em>(string)</em><p>This URL is used as a callback after a successful authentication and authorization grant to redirect the access token. This is:<br></p><ul><li><strong>OPTIONAL</strong> if only one redirect URI is registered for your application.<br></li><li><strong>REQUIRED</strong> if multiple redirect URIs are registered for your application (must match at least one of these URIs).<br>For security reasons, TLS should be used for redirect URIs.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 specification (rfc6749#section-3.1.2)</a>.</li></ul></li><li><strong>scope</strong>: <em>(string)</em><p>This lists the requested scope of the access.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.<br>The predefined scopes are:<br></p><ul><li><strong>hybris.tenant={tenantName}</strong> - This enables you to specify the tenant for which an access token should be issued.<br>If neither this scope nor hybris.no_tenant is specified, and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br>If both this scope and hybris.no_tenant are specified, the server responds with a redirection to the redirect_uri or registered redirect URL with the &#39;error&#39; parameter set to &#39;invalid_scope&#39; and &#39;error_description&#39; with the error details.<br></li><li><strong>hybris.no_tenant</strong> - This enables you to omit the tenant chooser.<br>If neither this scope nor hybris.tenant is specified, and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br>If both this scope and hybris.tenant are specified, the server responds with a redirection to the redirect_uri or registered redirect URL with the &#39;error&#39; parameter set to &#39;invalid_scope&#39; and &#39;error_description&#39; with the error details.<br></li><li><strong>hybris.org={organizationID}</strong> - This enables yout to specify the organization for which an access token should be issued.<br>Using both this scope and hybris.tenant or hybris.no_tenant is not allowed.</li></ul><p><strong>Example</strong>:</p><pre>hybris.tenant%3Dfa4dvht53fgb%20hybris.manage%20hybris.view</pre></li><li><strong>state</strong>: <em>(string)</em><p>RECOMMENDED. This is an opaque value used by the client to maintain the state between the request and the redirect.<br>This value is included when redirecting the user agent back to the client.<br>The parameter should be used to prevent cross-site request forgery as described in the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-10.12">OAuth 2.0 specification (rfc6749#section-10.12)</a>.</p><p><strong>Example</strong>:</p><pre>security_token%3D9F2a3290Daa126P%26custom_state%3Dhttps://hybris.com/index.html
+</pre></li><li><strong>id_token_hint</strong>: <em>(string)</em><p>This value is used in subsequent requests for the access token (the actual ID token that was received in the previous request).</p></li><li><strong>nonce</strong>: <em>(string)</em><p>This value is used to prevent replay attacks when using id_token. It must have sufficient entropy.</p></li><li><strong>display</strong>: <em>(string)</em><p>This value specifies how the authorization server displays the authentication and tenant chooser pages to the end user.<br>The supported values are:<br></p><ul><li><code>popup</code> for transparent background<br></li><li><code>page</code> for default display</li></ul><p><strong>Example</strong>:</p><pre>page</pre></li><li><strong>hybris-session-id</strong>: <em>(string)</em><p>This is the session identifier. It is generated if not passed.</p></li></ul></div><div class="tab-pane" id="authorize_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>The authentication page or the tenant chooser page for multi-tenant clients.<br></p><h2>HTTP status code <a href="http://httpstatus.es/302" target="_blank">302</a></h2><p>The redirection to the redirect_uri or the registered redirect URL.</p><h3>Headers</h3><ul><li><strong>location</strong>: <em>required (string)</em><p>The redirection URL equals the redirect_uri if it was specified in the request. Otherwise, it equals the registered redirect URL. If multiple redirect URLs are registered, the redirect_uri parameter is required.<br>It contains the following parameters in the URL Fragment Component:</p><ul><li>If the authentication and the authorization grant succeed:<ul><li><strong>access_token</strong> - This is the access token issued by the authorization server.</li><li><strong>token_type</strong> - This is the type of the token issued. The value is "bearer".<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-7.1">OAuth 2.0 specification (rfc6749#section-7.1)</a>.</li><li><strong>expires_in</strong> - This is the lifetime in seconds of the access token.</li><li><strong>scope</strong> - This lists the effective scope of the access token. The value of the scope parameter is expressed as a list of space-delimited, case-sensitive strings.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.</li><li><strong>state</strong> - This is the exact value received from the client if it was specified in the request "state" parameter.</li></ul></li><li>If the resource owner denies the access request, or if the request fails for reasons other than a missing or invalid redirection URI:<ul><li><strong>error</strong> - This is a single ASCII error code from the following:<ul><li><strong>invalid_request</strong> - The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.</li><li><strong>unauthorized_client</strong> - The client is not authorized to request an access token using this method.</li><li><strong>access_denied</strong> - The resource owner or authorization server denied the request.</li><li><strong>unsupported_response_type</strong> - The authorization server does not support obtaining an access token using this method.</li><li><strong>invalid_scope</strong> - The requested scope is invalid, unknown, or malformed.</li><li><strong>server_error</strong> - The authorization server encountered an unexpected condition that prevented it from completing the request.</li><li><strong>temporarily_unavailable</strong> - The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.</li></ul></li><li><strong>error_description</strong> - This is a human-readable ASCII text line providing additional information that is used to assist the client developer in understanding the returned error.</li><li><strong>error_uri</strong> - This is a URI identifying a human-readable webpage with information about the error that is used to provide the client developer with additional information about the error.</li><li><strong>state</strong> - This is the exact value received from the client if it was specified in the request "state" parameter.</li></ul>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</li></ul></li></ul><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Bad request is returned if the parameter:</p><p><ul><li>client_id is missing (the redirect_uri cannot be verified and redirect URL is not found)</li><li>client_id has an invalid value (the redirect_uri cannot be verified and redirect URL is not found)</li><li>client_id is included in the request more than once</li><li>redirect_uri is missing and is required because multiple redirect URLs are registered</li><li>redirect_uri has invalid value</li><li>redirect_uri is included in the request more than once</li></ul>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</p></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="authorize_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="u-break-all"><span class="parent"></span>/authorize</span></h4></div><div class="modal-body"><div class="alert alert-success"><p>This starts the authorization procedure with the parameters specified in the request body (form parameters).</p></div><ul class="nav nav-tabs"><li class="active"><a href="#authorize_post_request" data-toggle="tab">Request</a></li><li><a href="#authorize_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="authorize_post_request"><h3>Body</h3><p><strong>Type: application/x-www-form-urlencoded</strong></p><strong>Form Parameters</strong><ul><li><strong>response_type</strong>: <em>required (string)</em><p>This value can be "token" or "id_token token" (currently only Implicit Grant flow, as described in <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.1">rfc6749#section-4.2.1</a>, is supported).<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.1">OAuth 2.0 specification (rfc6749#section-3.1.1)</a>.</p></li><li><strong>client_id</strong>: <em>required (string)</em><p>This is the client identifier, available in the Client Authorization section in the Builder. For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.2">OAuth 2.0 specification (rfc6749#section-2.2)</a>.</p></li><li><strong>redirect_uri</strong>: <em>(string)</em><p>This URL is used as a callback after a successful authentication and authorization grant to redirect the access token. This is:<br></p><ul><li><strong>OPTIONAL</strong> if only one redirect URI is registered for your application.<br></li><li><strong>REQUIRED</strong> if multiple redirect URIs are registered for your application (must match at least one of these URIs).<br>For security reasons, TLS should be used for redirect URIs.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 specification (rfc6749#section-3.1.2)</a>.</li></ul></li><li><strong>scope</strong>: <em>(string)</em><p>This lists the requested scope of the access.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.<br>The predefined scopes:<br></p><ul><li><strong>hybris.tenant={tenantName}</strong> - This enables you to specify the tenant for which an access token should be issued.<br>If neither this scope nor hybris.no_tenant is specified and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br>If both this scope and hybris.no_tenant are specified, the server responds with a redirection to the redirect_uri or registered redirect URL with the &#39;error&#39; parameter set to &#39;invalid_scope&#39; and &#39;error_description&#39; with the error details.<br></li><li><strong>hybris.no_tenant</strong> - Enables you to omit the tenant chooser.<br>If neither this scope nor hybris.tenant is specified and the user account is associated with multiple tenants, the authorization server displays an additional page which enables the user to select the appropriate tenant.<br>If both this scope and hybris.tenant are specified, the server responds with a redirection to the redirect_uri or registered redirect URL with the &#39;error&#39; parameter set to &#39;invalid_scope&#39; and &#39;error_description&#39; with the error details.<br></li><li><strong>hybris.org={organizationID}</strong> - This enables yout to specify the organization for which an access token should be issued.<br>Using both this scope and hybris.tenant or hybris.no_tenant is not allowed.</li></ul><p><strong>Example</strong>:</p><pre>hybris.tenant=fa4dvht53fgb hybris.manage hybris.view</pre></li><li><strong>state</strong>: <em>(string)</em><p>RECOMMENDED. This is an opaque value used by the client to maintain the state between the request and the redirect.<br>This value is included when redirecting the user agent back to the client.<br>The parameter should be used for preventing cross-site request forgery as described in the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-10.12">OAuth 2.0 specification (rfc6749#section-10.12)</a>.</p><p><strong>Example</strong>:</p><pre>security_token=9F2a3290Daa126P&amp;custom_state=https://hybris.com/index.html
+</pre></li><li><strong>id_token_hint</strong>: <em>(string)</em><p>This value is used in the subsequent requests for the access token (the actual ID token that was received in the previous request).</p></li><li><strong>nonce</strong>: <em>(string)</em><p>This value is used to prevent replay attacks when using the id_token. It must have sufficient entropy.</p></li><li><strong>display</strong>: <em>(string)</em><p>This value specifies how the authorization server displays the authentication and tenant chooser pages to the end user.<br>The supported values are:<br></p><ul><li><code>popup</code> for transparent background<br></li><li><code>page</code> for default display</li></ul><p><strong>Example</strong>:</p><pre>page</pre></li><li><strong>hybris-session-id</strong>: <em>(string)</em><p>This is the session identifier. It is generated if not passed.</p></li></ul></div><div class="tab-pane" id="authorize_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>The authentication page or the tenant chooser page for multi-tenant clients.</p><h2>HTTP status code <a href="http://httpstatus.es/302" target="_blank">302</a></h2><p>The redirection to the redirect_uri or the registered redirect URL.</p><h3>Headers</h3><ul><li><strong>location</strong>: <em>required (string)</em><p>The redirection URL equals the redirect_uri if it was specified in the request. Otherwise, it equals the registered redirect URL (if multiple redirect URLs are registered, the redirect_uri is required).<br>It contains the following parameters in the URL Fragment Component:</p><ul><li>If the authentication and the authorization grant succeed:<ul><li><strong>access_token</strong> - This is the access token issued by the authorization server.</li><li><strong>token_type</strong> - This is the type of token issued. The value is "bearer".<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-7.1">OAuth 2.0 specification (rfc6749#section-7.1)</a>.</li><li><strong>expires_in</strong> - This is the lifetime in seconds of the access token.</li><li><strong>scope</strong> - This lists the effective scope of the access token. The value of the scope parameter is expressed as a list of space-delimited, case-sensitive strings.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.</li><li><strong>state</strong> - This is the exact value received from the client if it was specified in the request "state" parameter.</li></ul></li><li>If the resource owner denies the access request, or if the request fails for reasons other than a missing or invalid redirection URI:<ul><li><strong>error</strong> - This is a single ASCII error code from the following:<ul><li><strong>invalid_request</strong> - The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed.</li><li><strong>unauthorized_client</strong> - The client is not authorized to request an access token using this method.</li><li><strong>access_denied</strong> - The resource owner or authorization server denied the request.</li><li><strong>unsupported_response_type</strong> - The authorization server does not support obtaining an access token using this method.</li><li><strong>invalid_scope</strong> - The requested scope is invalid, unknown, or malformed.</li><li><strong>server_error</strong> - The authorization server encountered an unexpected condition that prevented it from completing the request.</li><li><strong>temporarily_unavailable</strong> - The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.</li></ul></li><li><strong>error_description</strong> - This is a human-readable ASCII text line providing additional information that is used to assist the client developer in understanding the error that was returned.</li><li><strong>error_uri</strong> - This is a URI identifying a human-readable webpage with information about the error that is used to provide the client developer with additional information about the error.</li><li><strong>state</strong> - This is the exact value received from the client if it was specified in the request "state" parameter.</li></ul>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</li></ul></li></ul><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>Bad request is returned if the parameter:</p><p><ul><li>client_id is missing (the redirect_uri cannot be verified and redirect URL is not found)</li><li>client_id has an invalid value (the redirect_uri cannot be verified and redirect URL is not found)</li><li>client_id is included in the request more than once</li><li>redirect_uri is missing and it is required because multiple redirect URLs are registered</li><li>redirect_uri has an invalid value</li><li>redirect_uri is included in request more than once</li></ul>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-4.2.2.1">OAuth 2.0 specification (rfc6749#section-4.2.2.1)</a>.</p></div></div></div></div></div></div></div></div></div></div><div class="panel panel-neutral panel-customapiref"><div class="panel-heading"><h3 id="token" class="panel-title">/token</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-neutral panel-neutral--only-margin-bottom panel-customapiref"><div class="panel-heading"><h4 id="#panel_token" class="panel-title"><span class="parent"></span>/token</h4></div><div id="panel_token"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#token_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>The token endpoint. Use only one of the authorization types: <code>header</code>, or <code>client_id</code> and <code>client_secret</code> parameters. For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.2">OAuth 2.0 specification (rfc6749#section-3.2)</a> and <a target="blank" title="Getting Started" href="/gettingstarted/index.html">Getting Started</a> tutorial.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="token_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="u-break-all"><span class="parent"></span>/token</span></h4></div><div class="modal-body"><div class="alert alert-success"><p>The token endpoint. Use only one of the authorization types: <code>header</code>, or <code>client_id</code> and <code>client_secret</code> parameters. For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.2">OAuth 2.0 specification (rfc6749#section-3.2)</a> and <a target="blank" title="Getting Started" href="/gettingstarted/index.html">Getting Started</a> tutorial.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#token_post_request" data-toggle="tab">Request</a></li><li><a href="#token_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="token_post_request"><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em>(string)</em><p>Provides the basic authorization. For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.3.1">OAuth 2.0 specification (rfc6749#section-2.3.1)</a>.</p><p><strong>Example</strong>:</p><pre>Basic czZCaGRSa3F0MzpnWDFmQmF0M2JW</pre></li></ul><h3>Body</h3><p><strong>Type: application/x-www-form-urlencoded</strong></p><strong>Form Parameters</strong><ul><li><strong>grant_type</strong>: <em>required (string - default: client_credentials)</em><p>The grant type of the request. The value MUST be set to <code>client_credentials</code>.</p><p><strong>Example</strong>:</p><pre>client_credentials</pre></li><li><strong>scope</strong>: <em>(string)</em><p>Lists the requested scope of the access.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-3.3">OAuth 2.0 specification (rfc6749#section-3.3)</a>.<br>The predefined scope is:<br></p><ul><li><strong>hybris.tenant={tenantName}</strong> - This enables you to specify the tenant for which an access token should be issued.<br>It may be used for multi-tenant clients: Services or Builder modules. It is set to the ID of the team that created the client if not passed. This must be set to the ID of the project that should be used in subsequent requests with the access token. For single-tenant clients when the client_id of the project is used, do not set this parameter.</li></ul><p><strong>Example</strong>:</p><pre>hybris.tenant=fa4dvht53fgb hybris.manage hybris.view</pre></li><li><strong>client_id</strong>: <em>(string)</em><p>Client identifier. This is required if the <strong>Authorization</strong> header is omitted.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.2">OAuth 2.0 specification (rfc6749#section-2.2)</a>.</p></li><li><strong>client_secret</strong>: <em>(string)</em><p>Client secret. This is required if the <strong>Authorization</strong> header is omitted.<br>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-2.3.1">OAuth 2.0 specification (rfc6749#section-2.3.1)</a>.</p></li><li><strong>hybris-session-id</strong>: <em>(string)</em><p>Session identifier. It is generated if not passed.</p></li></ul></div><div class="tab-pane" id="token_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>clientCredentialsResponse</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "access_token": "2YotnFZFEjr1zCsicMWpAA",
+    "expires_in": 3600,
+    "token_type": "Bearer",
+    "scope": "hybris.product_manage hybris.product_read"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><p>The bad request error is returned if:</p><p><ul><li>The Authorization header is missing</li><li>client_id is missing or has an invalid value</li><li>grant_type is missing or has an invalid value</li><li>hybris-tenant is missing</li></ul>For more information, see the <a target="blank" title="OAuth2 RFC 6749" href="http://tools.ietf.org/html/rfc6749#section-5.2">OAuth 2.0 specification (rfc6749#section-5.2)</a>.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>oauth2Error</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "error": "invalid_grant",
+    "errorDescription": "client_code is not supported grant type."
+}
+</code></pre></div></div></div></div></div></div></div></div></div></div><div class="panel panel-neutral panel-customapiref"><div class="panel-heading"><h3 id="userinfo" class="panel-title">/userinfo</h3></div><div class="panel-body"><div class="top-resource-description"><p>OpenID UserInfo Endpoint. This is used to get claims about the authenticated end user.<br>For more information, see the <a target="blank" title="UserInfo Endpoint - OpenId Connect Core 1.0 Specification" href="http://openid.net/specs/openid-connect-core-1_0.html#rfc.section.5.3">UserInfo Endpoint - OpenId Connect Core 1.0 Specification (section 5.3)</a>.</p></div><div class="panel-group"><div class="panel panel-neutral panel-neutral--only-margin-bottom panel-customapiref"><div class="panel-heading"><h4 id="#panel_userinfo" class="panel-title"><span class="parent"></span>/userinfo</h4></div><div id="panel_userinfo"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#userinfo_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Returns claims about the authenticated end user.</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#userinfo_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Returns claims about the authenticated end user.</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="userinfo_get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="u-break-all"><span class="parent"></span>/userinfo</span></h4></div><div class="modal-body"><div class="alert alert-success"><p>Returns claims about the authenticated end user.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#userinfo_get_request" data-toggle="tab">Request</a></li><li><a href="#userinfo_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="userinfo_get_request"><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em>required (string)</em><p>Used to send a valid OAuth2 access token.</p><p><strong>Example</strong>:</p><pre>Bearer access_token</pre></li></ul></div><div class="tab-pane" id="userinfo_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Claims about the authenticated end user.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://schemas-schema.org/draft-04/schema",
+    "type": "object",
+    "title": "UserInfo Claims",
+    "properties": {
+        "sub": {
+            "description": "Subject - Identifier for the End-User at the Issuer",
+            "type": "string",
+            "required": true
+        },
+        "tenant": {
+            "description": "Tenant for which End-User is authenticated (Private Claim)",
+            "type": "string",
+            "required": false
+        }
+    }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "sub": "test@hybris.com",
+    "tenant": "sampleTenant"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Given request is unauthorized. Bad or expired token. Reauthenticate the user. Any details will be provided within the response payload.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "error",
+    "description": "schema for API specified errors",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "integer",
+            "description": "original HTTP error code, should be consistent with the response HTTP code",
+            "minimum": 100,
+            "maximum": 599
+        },
+        "type": {
+            "type": "string",
+            "description": "classification of the error type, lower case with underscore eg validation_failure",
+            "pattern": "[a-z]+[a-z_]*[a-z]+"
+        },
+        "message": {
+            "type": "string",
+            "description": "descriptive error message for debugging"
+        },
+        "moreInfo": {
+            "type": "string",
+            "format": "uri",
+            "description": "link to documentation to investigate further and finding support"
+        },
+        "details": {
+            "type": "array",
+            "description": "list of problems causing this error",
+            "items": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "title": "errorDetail",
+                "description": "schema for specific error cause",
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string",
+                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "descriptive error detail message for debugging"
+                    },
+                    "moreInfo": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "link to documentation to investigate further and finding support for error detail"
+                    }
+                },
+                "required": [
+                    "type"
+                ]
+            }
+        }
+    },
+    "required": [
+        "status",
+        "type"
+    ]
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "status": 401,
+    "message": "Authorization: Unauthorized. Bearer TOKEN is invalid",
+    "type": "insufficient_credentials",
+    "moreInfo": "https://api.yaas.io/patterns/errortypes.html"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Evaluated request scopes in access token are not sufficient and do not match required scopes.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "error",
+    "description": "schema for API specified errors",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "integer",
+            "description": "original HTTP error code, should be consistent with the response HTTP code",
+            "minimum": 100,
+            "maximum": 599
+        },
+        "type": {
+            "type": "string",
+            "description": "classification of the error type, lower case with underscore eg validation_failure",
+            "pattern": "[a-z]+[a-z_]*[a-z]+"
+        },
+        "message": {
+            "type": "string",
+            "description": "descriptive error message for debugging"
+        },
+        "moreInfo": {
+            "type": "string",
+            "format": "uri",
+            "description": "link to documentation to investigate further and finding support"
+        },
+        "details": {
+            "type": "array",
+            "description": "list of problems causing this error",
+            "items": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "title": "errorDetail",
+                "description": "schema for specific error cause",
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string",
+                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "descriptive error detail message for debugging"
+                    },
+                    "moreInfo": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "link to documentation to investigate further and finding support for error detail"
+                    }
+                },
+                "required": [
+                    "type"
+                ]
+            }
+        }
+    },
+    "required": [
+        "status",
+        "type"
+    ]
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "status": 403,
+    "message": "Given request does not have required scopes in access token. It is not authorized to perform this operation.",
+    "type": "insufficient_permissions"
+}
+</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="userinfo_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="u-break-all"><span class="parent"></span>/userinfo</span></h4></div><div class="modal-body"><div class="alert alert-success"><p>Returns claims about the authenticated end user.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#userinfo_post_request" data-toggle="tab">Request</a></li><li><a href="#userinfo_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="userinfo_post_request"><h3>Headers</h3><ul><li><strong>Authorization</strong>: <em>required (string)</em><p>Used to send a valid OAuth2 access token.</p><p><strong>Example</strong>:</p><pre>Bearer access_token</pre></li></ul></div><div class="tab-pane" id="userinfo_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><p>Claims about the authenticated end user.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://schemas-schema.org/draft-04/schema",
+    "type": "object",
+    "title": "UserInfo Claims",
+    "properties": {
+        "sub": {
+            "description": "Subject - Identifier for the End-User at the Issuer",
+            "type": "string",
+            "required": true
+        },
+        "tenant": {
+            "description": "Tenant for which End-User is authenticated (Private Claim)",
+            "type": "string",
+            "required": false
+        }
+    }
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "sub": "test@hybris.com",
+    "tenant": "sampleTenant"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/401" target="_blank">401</a></h2><p>Given request is unauthorized. Bad or expired token. Reauthenticate the user. Any details will be provided within the response payload.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "error",
+    "description": "schema for API specified errors",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "integer",
+            "description": "original HTTP error code, should be consistent with the response HTTP code",
+            "minimum": 100,
+            "maximum": 599
+        },
+        "type": {
+            "type": "string",
+            "description": "classification of the error type, lower case with underscore eg validation_failure",
+            "pattern": "[a-z]+[a-z_]*[a-z]+"
+        },
+        "message": {
+            "type": "string",
+            "description": "descriptive error message for debugging"
+        },
+        "moreInfo": {
+            "type": "string",
+            "format": "uri",
+            "description": "link to documentation to investigate further and finding support"
+        },
+        "details": {
+            "type": "array",
+            "description": "list of problems causing this error",
+            "items": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "title": "errorDetail",
+                "description": "schema for specific error cause",
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string",
+                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "descriptive error detail message for debugging"
+                    },
+                    "moreInfo": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "link to documentation to investigate further and finding support for error detail"
+                    }
+                },
+                "required": [
+                    "type"
+                ]
+            }
+        }
+    },
+    "required": [
+        "status",
+        "type"
+    ]
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "status": 401,
+    "message": "Authorization: Unauthorized. Bearer TOKEN is invalid",
+    "type": "insufficient_credentials",
+    "moreInfo": "https://api.yaas.io/patterns/errortypes.html"
+}
+</code></pre><h2>HTTP status code <a href="http://httpstatus.es/403" target="_blank">403</a></h2><p>Evaluated request scopes in access token are not sufficient and do not match required scopes.</p><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "error",
+    "description": "schema for API specified errors",
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "integer",
+            "description": "original HTTP error code, should be consistent with the response HTTP code",
+            "minimum": 100,
+            "maximum": 599
+        },
+        "type": {
+            "type": "string",
+            "description": "classification of the error type, lower case with underscore eg validation_failure",
+            "pattern": "[a-z]+[a-z_]*[a-z]+"
+        },
+        "message": {
+            "type": "string",
+            "description": "descriptive error message for debugging"
+        },
+        "moreInfo": {
+            "type": "string",
+            "format": "uri",
+            "description": "link to documentation to investigate further and finding support"
+        },
+        "details": {
+            "type": "array",
+            "description": "list of problems causing this error",
+            "items": {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "title": "errorDetail",
+                "description": "schema for specific error cause",
+                "type": "object",
+                "properties": {
+                    "field": {
+                        "type": "string",
+                        "description": "a bean notation expression specifying the element in request data causing the error, eg product.variants[3].name, this can be empty if violation was not field specific"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "classification of the error detail type, lower case with underscore eg missing_value, this value must be always interpreted in context of the general error type.",
+                        "pattern": "[a-z]+[a-z_]*[a-z]+"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "descriptive error detail message for debugging"
+                    },
+                    "moreInfo": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "link to documentation to investigate further and finding support for error detail"
+                    }
+                },
+                "required": [
+                    "type"
+                ]
+            }
+        }
+    },
+    "required": [
+        "status",
+        "type"
+    ]
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+    "status": 403,
+    "message": "Given request does not have required scopes in access token. It is not authorized to perform this operation.",
+    "type": "insufficient_permissions"
+}</code></pre></div></div></div></div></div></div></div></div></div></div><ul id="api_ref_nav" class="nav nav-stacked"><li><a href="#authorize">/authorize</a></li><li><a href="#token">/token</a></li><li><a href="#userinfo">/userinfo</a></li></ul><p></p></section><hr><!-- Events Document--><!-- Details Docu--><section id="Details" class="group"></section><!-- TUTORIAL Docu--><section id="Tutorial" class="group"><div id="SamuelinaBar" class="subgroup"><h2>Samuel in a Bar</h2><p><!-- start slipsum code --></p><p>&lt;%- @partial(&quot;samuellipsum_raml_v1&quot;) %&gt;</p><p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that&#39;s what you see at a toy store. And you must think you&#39;re in a toy store, because you&#39;re here shopping for an infant named Jeb.</p><p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother&#39;s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p><p>Look, just because I don&#39;t be givin&#39; no man a foot massage don&#39;t make it right for Marsellus to throw Antwone into a glass motherfuckin&#39; house, fuckin&#39; up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, &#39;cause I&#39;ll kill the motherfucker, know what I&#39;m sayin&#39;?</p><p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that&#39;s what you see at a toy store. And you must think you&#39;re in a toy store, because you&#39;re here shopping for an infant named Jeb.</p><p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.</p><p></p></div><hr><div id="SamuelinaRoom" class="subgroup"><h2>Samuel in a Room</h2><p></p><p>&lt;%- @partial(&quot;samuellipsum_raml_v1&quot;) %&gt;</p><!-- start slipsum code --><p>Well, the way they make shows is, they make one show. That show&#39;s called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they&#39;re going to make more shows. Some pilots get picked and become television programs. Some don&#39;t, become nothing. She starred in one of the ones that became nothing.</p><p>Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I&#39;m in a transitional period so I don&#39;t wanna kill you, I wanna help you. But I can&#39;t give you this case, it don&#39;t belong to me. Besides, I&#39;ve already been through too much shit this morning over this case to hand it over to your dumb ass.</p><p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.</p><p>Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that&#39;s what you see at a toy store. And you must think you&#39;re in a toy store, because you&#39;re here shopping for an infant named Jeb.</p><p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.</p><p></p></div><hr><div id="SamuelinaCar" class="subgroup"><h2>Samuel in a Car</h2><p></p><p></p><p><strong>Partial</strong> that <em>reuses</em> contentReuse</p><pre class="highlight"><code class="hljs json"> {
+   "<span class="hljs-attribute">s</span>": <span class="hljs-value"><span class="hljs-string">"s"</span></span>,
+   "<span class="hljs-attribute">s</span>": <span class="hljs-value"><span class="hljs-string">"s"</span>
+ </span>}
+</code></pre><p></p><p>https://mmitoraj.github.io/services/samuellipsum/v1/api.raml</p><p>http://slipsum.com</p><!-- start slipsum code --><p>Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they&#39;re actually proud of that shit.</p><p>Your bones don&#39;t break, mine do. That&#39;s clear. Your cells react to bacteria and viruses differently than mine. You don&#39;t get sick, I do. That&#39;s also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We&#39;re on the same curve, just on opposite ends.</p><p>My money&#39;s in that office, right <span class="u-help-label" data-toggle="tooltip" data-placement="top" title="Samuel L. Jackson is an American actor and film producer.">Samuel</span>? If she start giving me some bullshit about it ain&#39;t there, and we got to go someplace else and get it, I&#39;m gonna shoot you in the head then and there. Then I&#39;m gonna shoot that bitch in the kneecaps, find out where my goddamn money is. She gonna tell me too. Hey, look at me when I&#39;m talking to you, motherfucker. You listen: we go in there, and that nigga Winston or anybody else is in there, you the first motherfucker to get shot. You understand?</p><p>Your bones don&#39;t break, mine do. That&#39;s clear. Your cells react to bacteria and viruses differently than mine. You don&#39;t get sick, I do. That&#39;s also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We&#39;re on the same curve, just on opposite ends.</p><p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother&#39;s keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p><!-- please do not remove this line --><!-- end slipsum code --><p></p></div><hr></section><!-- GLOSSARY Docu--><section id="Glossary" class="group"><h2>Glossary</h2><p><table class="table table-striped techne-table"><thead><tr><th>Term</th><th>Description</th></tr></thead><tbody><tr><td data-th="Term">Samuel</td><td data-th="Description">Samuel L. Jackson is an American actor and film producer.</td></tr></tbody></table></p></section><hr></div></div></div></div></div></div></div></section></div><a href="#content" id="back-top"><span class="glyphicon glyphicon-arrow-up"></span> Back to Top</a><!-- footer scripts --><script defer="defer" src="/scripts/devportal-yaas.min.js"></script><script>$(document).ready(function(){
+      $('ul.nav li.dropdown').hover(function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeIn(0);
+      }, function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(0).fadeOut(0);
+      });
+  });</script></body></html>

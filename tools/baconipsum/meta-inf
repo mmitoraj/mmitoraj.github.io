@@ -1,0 +1,16 @@
+apiReferenceContentInternal: "---\nservice: Bacon Ipsum\ntitle: API Reference\nlayout: document\n---\nmainReferencePlaceholder"
+apiReferenceSource: "./tmp/docuSources/tools/baconipsum/content/tools/baconipsum/docu/files/apireferenceTempContent.html"
+apiReferenceSourceInternal: "./tmp/docuSources/tools/baconipsum/content/tools/baconipsum/docu/internal/files/apireferenceTempContent.html"
+apiReferenceNewFile: "./tmp/docuSources/tools/baconipsum/content/tools/baconipsum/docu/files/apireference.html"
+apiReferenceNewFileInternal: "./tmp/docuSources/tools/baconipsum/content/tools/baconipsum/docu/internal/files/apireference.html"
+clientFolder: "./tmp/docuSources/tools/baconipsum/content/tools/baconipsum/docu/files/client"
+clientFolderInternal: "./tmp/docuSources/tools/baconipsum/content/tools/baconipsum/docu/internal/files/client"
+clonedDocuFolderTypes: "./tmp/docuSources/tools"
+isInternalNameExists: false
+isService: false
+isGS: false
+isTools: true
+hasReleaseNotes: false
+isSrcLocNotMainDocu: false
+local: false
+---

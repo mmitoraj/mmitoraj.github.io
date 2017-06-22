@@ -1,0 +1,16 @@
+apiReferenceContentInternal: "---\nservice: Veggie Ipsum\ntitle: API Reference\nlayout: document\n---\nmainReferencePlaceholder"
+apiReferenceSource: "./tmp/docuSources/tools/veggieipsum/content/tools/veggieipsum/docu/files/apireferenceTempContent.html"
+apiReferenceSourceInternal: "./tmp/docuSources/tools/veggieipsum/content/tools/veggieipsum/docu/internal/files/apireferenceTempContent.html"
+apiReferenceNewFile: "./tmp/docuSources/tools/veggieipsum/content/tools/veggieipsum/docu/files/apireference.html"
+apiReferenceNewFileInternal: "./tmp/docuSources/tools/veggieipsum/content/tools/veggieipsum/docu/internal/files/apireference.html"
+clientFolder: "./tmp/docuSources/tools/veggieipsum/content/tools/veggieipsum/docu/files/client"
+clientFolderInternal: "./tmp/docuSources/tools/veggieipsum/content/tools/veggieipsum/docu/internal/files/client"
+clonedDocuFolderTypes: "./tmp/docuSources/tools"
+isInternalNameExists: false
+isService: false
+isGS: false
+isTools: true
+hasReleaseNotes: false
+isSrcLocNotMainDocu: false
+local: false
+---

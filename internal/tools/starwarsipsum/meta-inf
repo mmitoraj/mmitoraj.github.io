@@ -1,0 +1,16 @@
+apiReferenceContentInternal: "---\nservice: Star Wars Ipsum\ntitle: API Reference\nlayout: document\n---\nmainReferencePlaceholder"
+apiReferenceSource: "./tmp/docuSources/tools/starwarsipsum/content/tools/starwarsipsum/docu/files/apireferenceTempContent.html"
+apiReferenceSourceInternal: "./tmp/docuSources/tools/starwarsipsum/content/tools/starwarsipsum/docu/internal/files/apireferenceTempContent.html"
+apiReferenceNewFile: "./tmp/docuSources/tools/starwarsipsum/content/tools/starwarsipsum/docu/files/apireference.html"
+apiReferenceNewFileInternal: "./tmp/docuSources/tools/starwarsipsum/content/tools/starwarsipsum/docu/internal/files/apireference.html"
+clientFolder: "./tmp/docuSources/tools/starwarsipsum/content/tools/starwarsipsum/docu/files/client"
+clientFolderInternal: "./tmp/docuSources/tools/starwarsipsum/content/tools/starwarsipsum/docu/internal/files/client"
+clonedDocuFolderTypes: "./tmp/docuSources/tools"
+isInternalNameExists: false
+isService: false
+isGS: false
+isTools: true
+hasReleaseNotes: false
+isSrcLocNotMainDocu: false
+local: false
+---
